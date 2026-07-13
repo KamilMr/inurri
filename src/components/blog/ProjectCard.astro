@@ -24,7 +24,7 @@ const href = slug.startsWith('/') ? slug : `/${slug}`;
   
   <div class="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 bg-black/50 backdrop-blur-md">
      <div class="flex flex-wrap gap-2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-        {tags.map(tag => (
+        {tags.slice(0, 2).map(tag => (
             <span class="text-xs font-medium px-2 py-1 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20">
                 {tag}
             </span>
