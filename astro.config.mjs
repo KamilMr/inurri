@@ -79,7 +79,7 @@ export default defineConfig({
   ],
   i18n: {
     defaultLocale: DEFAULT_LOCALE,
-    locales: ["en"],
+    locales: ["en", "pl"],
     routing: { prefixDefaultLocale: true }
   },
   integrations: [

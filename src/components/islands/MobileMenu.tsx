@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
-import BrandIcon from '~/components/common/BrandIcon';
 import * as Icons from 'lucide-react';
 import { ACTION_LINKS } from '~/site.config';
 
@@ -21,6 +20,7 @@ interface NavLink {
 interface MobileMenuProps {
   links: NavLink[];
   currentPath?: string;
+  ctaHref?: string;
   labels?: {
     menu: string;
     getStarted: string;
@@ -30,6 +30,7 @@ interface MobileMenuProps {
 export default function MobileMenu({ 
   links, 
   currentPath = '/',
+  ctaHref = ACTION_LINKS.primary.href,
   labels = {
     menu: 'Menu',
     getStarted: 'Get Started'
@@ -98,8 +99,15 @@ export default function MobileMenu({
                 <ul className="flex flex-col gap-4 md:gap-2 m-0 p-0 list-none">
                   {links.map((link) => {
                     const isActive = (href: string) => {
-                         if (href === '/') return currentPath === '/';
-                         return currentPath.startsWith(href);
+                         const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+                         const normalizedHref = href.replace(/\/$/, '') || '/';
+
+                         if (normalizedHref === '/') return normalizedPath === '/';
+
+                         const isLocaleRoot = normalizedHref.split('/').filter(Boolean).length === 1;
+                         if (isLocaleRoot) return normalizedPath === normalizedHref;
+
+                         return normalizedPath === normalizedHref || normalizedPath.startsWith(`${normalizedHref}/`);
                     };
                     const isLinkActive = isActive(link.href || '') || (link.children && link.children.map(c => isActive(c.href)).some(Boolean));
 
@@ -161,17 +169,12 @@ export default function MobileMenu({
 
               <div className="pt-6 md:pt-8 border-t border-foreground/10 flex flex-col gap-4 mt-auto">
                  <a 
-                    href={ACTION_LINKS.primary.href}
+                    href={ctaHref}
+                    onClick={() => setIsOpen(false)}
                     className="w-full py-3 px-4 bg-primary text-primary-foreground text-center font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/25"
                   >
                     {labels.getStarted}
                   </a>
-                  
-                  <div className="flex justify-center gap-6 mt-4">
-                     <a href={ACTION_LINKS.social.github} target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-primary transition-colors" aria-label="GitHub">
-                        <BrandIcon icon="github" className="w-6 h-6" aria-hidden="true" />
-                     </a>
-                  </div>
               </div>
             </motion.div>
           </>

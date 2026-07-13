@@ -1,5 +1,4 @@
 ---
-import BrandIcon from '~/components/common/BrandIcon.astro';
 import ThemeToggle from '~/components/common/ThemeToggle.astro';
 import MobileMenu from '~/components/islands/MobileMenu';
 import DesktopNav from '~/components/islands/DesktopNav';
@@ -40,9 +39,7 @@ const translateNavLinks = (links: any[], lang: string, t: any): any[] => {
 
 const links = translateNavLinks(NAV_LINKS, lang, t);
 
-const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
-  ? ACTION_LINKS.primary.href
-  : `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : '/'}${ACTION_LINKS.primary.href}`.replace(/\/$/, '');
+const primaryHref = `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : '/'}${ACTION_LINKS.primary.href}`.replace(/\/$/, '');
 ---
 
 <header id="main-header" class="w-full transition-all duration-500 border-b border-transparent bg-transparent py-4 text-foreground">
@@ -94,29 +91,21 @@ const primaryHref = ACTION_LINKS.primary.href.startsWith('/docs')
       <LanguagePicker availableLangs={availableLangs} />
       <ThemeToggle />
       <a 
-        href={ACTION_LINKS.social.github}
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="text-foreground hover:text-foreground/70 dark:text-white dark:hover:text-blue-300 transition-colors hidden md:block"
-        aria-label="GitHub"
-      >
-        <BrandIcon icon="github" className="w-5 h-5" />
-      </a>
-      <a 
         href={primaryHref}
         class="hidden md:block px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all"
       >
-        {t['hero.getStarted'] || ACTION_LINKS.primary.label}
+        {t['nav.cta']}
       </a>
       
       <div class="md:hidden">
         <MobileMenu 
           client:only="react" 
           links={links} 
-          currentPath={Astro.url.pathname} 
+          currentPath={Astro.url.pathname}
+          ctaHref={primaryHref}
           labels={{
             menu: t['nav.menu'],
-            getStarted: t['hero.getStarted'] || ACTION_LINKS.primary.label
+            getStarted: t['nav.cta']
           }}
         />
       </div>

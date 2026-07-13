@@ -25,8 +25,15 @@ export default function DesktopNav({ links, currentPath = '/' }: DesktopNavProps
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const isActive = (href: string) => {
-    if (href === '/') return currentPath === '/';
-    return currentPath.startsWith(href);
+    const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+    const normalizedHref = href.replace(/\/$/, '') || '/';
+
+    if (normalizedHref === '/') return normalizedPath === '/';
+
+    const isLocaleRoot = normalizedHref.split('/').filter(Boolean).length === 1;
+    if (isLocaleRoot) return normalizedPath === normalizedHref;
+
+    return normalizedPath === normalizedHref || normalizedPath.startsWith(`${normalizedHref}/`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
