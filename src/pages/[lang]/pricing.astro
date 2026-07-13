@@ -178,7 +178,7 @@ const pricingSteps = [
       <div class="mt-20">
         <div class="text-center max-w-3xl mx-auto mb-10">
           <p class="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-2">{t['pricing.care.eyebrow']}</p>
-          <h2 class="text-3xl md:text-5xl font-display font-bold mb-4">{t['pricing.care.title']}</h2>
+          <h2 class="text-3xl md:text-5xl font-display font-bold mb-4" set:html={t['pricing.care.title']} />
           <p class="text-muted-foreground">{t['pricing.care.desc']}</p>
         </div>
 
