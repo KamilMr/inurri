@@ -53,9 +53,7 @@ const schema = {
                             <ChevronDown className="w-5 h-5" />
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-muted-foreground leading-relaxed animate-accordion-down">
-                        {faq.answer}
-                    </div>
+                    <div class="px-6 pb-6 text-muted-foreground leading-relaxed animate-accordion-down" set:html={faq.answer} />
                 </details>
             ))}
         </div>
