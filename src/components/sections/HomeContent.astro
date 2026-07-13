@@ -57,7 +57,9 @@ const testimonials = [
   { text: t['testimonials.3.text'], author: t['testimonials.3.author'], role: t['testimonials.3.role'] },
   { text: t['testimonials.4.text'], author: t['testimonials.4.author'], role: t['testimonials.4.role'] },
   { text: t['testimonials.5.text'], author: t['testimonials.5.author'], role: t['testimonials.5.role'] },
-];
+].filter((testimonial) =>
+  testimonial.text?.trim() && testimonial.author?.trim() && testimonial.role?.trim()
+);
 
 const homeFaqs = [
   { question: t['faq.home.1.q'], answer: t['faq.home.1.a'] },
@@ -176,6 +178,7 @@ const homeFaqs = [
 </Section>
 
 
+{testimonials.length > 0 && (
 <Section class="py-0 overflow-visible">
 <Testimonials>
   {testimonials.map((testimonial) => (
@@ -187,8 +190,9 @@ const homeFaqs = [
   ))}
 </Testimonials>
 </Section>
+)}
 
-<LatestPosts count={6}/>
+{/* <LatestPosts count={6}/> */}
 
 <Section class="py-0 overflow-visible">
 <FAQ items={homeFaqs} />
