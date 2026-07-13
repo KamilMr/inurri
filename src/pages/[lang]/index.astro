@@ -10,13 +10,20 @@ export async function getStaticPaths() {
 }
 
 const { lang = defaultLang } = Astro.params;
+
+const pageTitle = lang === 'pl'
+    ? 'Inurri — Rozwiązania webowe | Frontend, Backend, Chmura'
+    : 'Inurri — Web solutions | Frontend, Backend, Cloud';
+const pageDescription = lang === 'pl'
+    ? 'Tworzę rozwiązania webowe dostosowane do Twoich potrzeb - od stron wizytówek po zaawansowane aplikacje. Frontend, backend, chmura i integracje systemów.'
+    : 'I build web solutions tailored to your needs - from business-card websites to advanced applications. Frontend, backend, cloud, and system integrations.';
 ---
 
-<Layout title="Cooper | Engineered for the Unknown" description="Cooper -The ultimate Astro starter Boilerplate for your next project. Made by Gladtek">
+<Layout title={pageTitle} description={pageDescription}>
     <Schema item={{
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Cooper",
+            "name": "Inurri",
             "url": Astro.site,
             "potentialAction": {
                 "@type": "SearchAction",
@@ -30,9 +37,9 @@ const { lang = defaultLang } = Astro.params;
     <Schema item={{
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Cooper",
+            "name": "Inurri",
             "operatingSystem": "Web",
-            "applicationCategory": "DeveloperApplication",
+            "applicationCategory": "BusinessApplication",
             "offers": {
                 "@type": "Offer",
                 "price": "0",

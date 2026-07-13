@@ -41,9 +41,7 @@ const { badge, title, highlight, description, primaryCta, secondaryCta } = Astro
           href={secondaryCta.href}
           variant="secondary"
           class="px-8 py-4 rounded-full text-base backdrop-blur-sm"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${secondaryCta.text} about our features`}
+          aria-label={`${secondaryCta.text} - ${title} ${highlight}`}
         >
           {secondaryCta.text}
         </Button>
