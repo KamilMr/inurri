@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = useTranslations(lang);
-const contactHref = `/${lang}/contact`;
+const contactHref = (serviceId: string) => `/${lang}/contact?service=${encodeURIComponent(serviceId)}`;
 
 const plans = [
   {
@@ -159,7 +159,7 @@ const pricingSteps = [
             features={plan.features}
             cta={plan.cta}
             popular={plan.popular}
-            ctaHref={contactHref}
+            ctaHref={contactHref(plan.key)}
           />
         ))}
       </PricingTable>

@@ -19,9 +19,11 @@ const t = useTranslations(lang);
 const formLabels = {
   name: t['contact.form.name'],
   email: t['contact.form.email'],
+  service: t['contact.form.service'],
   message: t['contact.form.message'],
   namePlaceholder: t['contact.form.name.placeholder'],
   emailPlaceholder: t['contact.form.email.placeholder'],
+  servicePlaceholder: t['contact.form.service.placeholder'],
   messagePlaceholder: t['contact.form.message.placeholder'],
   submit: t['contact.form.submit'],
   sending: t['contact.form.sending'],
@@ -34,6 +36,27 @@ const formLabels = {
   invalidEmail: t['contact.form.error.email.invalid'],
   requiredMessage: t['contact.form.error.message'],
 };
+
+const serviceOptions = [
+  {
+    id: 'starter',
+    label: t['pricing.starter.name'],
+    messageIntro: t['contact.prefill.starter.intro'],
+    messageRequest: t['contact.prefill.request'],
+  },
+  {
+    id: 'recommended',
+    label: t['pricing.recommended.name'],
+    messageIntro: t['contact.prefill.recommended.intro'],
+    messageRequest: t['contact.prefill.request'],
+  },
+  {
+    id: 'app',
+    label: t['pricing.app.name'],
+    messageIntro: t['contact.prefill.app.intro'],
+    messageRequest: t['contact.prefill.request'],
+  },
+];
 ---
 
 <Layout title={t['contact.meta.title']} description={t['contact.meta.desc']}>
@@ -91,10 +114,13 @@ const formLabels = {
                   <input type="hidden" name="form-name" value="contact" />
                   <input type="text" name="name" />
                   <input type="email" name="email" />
+                  <select name="service">
+                    {serviceOptions.map((option) => <option value={option.id}>{option.label}</option>)}
+                  </select>
                   <textarea name="message"></textarea>
                   <input name="bot-field" />
               </form>
-              <ContactForm labels={formLabels} client:only="react" />
+              <ContactForm labels={formLabels} serviceOptions={serviceOptions} client:only="react" />
           </div>
       </Grid>
   </Container>

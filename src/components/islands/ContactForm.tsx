@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, Loader2, Send } from 'lucide-react';
@@ -8,7 +8,15 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 interface FormData {
   name: string;
   email: string;
+  service: string;
   message: string;
+}
+
+interface ServiceOption {
+  id: string;
+  label: string;
+  messageIntro: string;
+  messageRequest: string;
 }
 
 interface Errors {
@@ -18,9 +26,11 @@ interface Errors {
 interface ContactFormLabels {
   name: string;
   email: string;
+  service: string;
   message: string;
   namePlaceholder: string;
   emailPlaceholder: string;
+  servicePlaceholder: string;
   messagePlaceholder: string;
   submit: string;
   sending: string;
@@ -36,6 +46,7 @@ interface ContactFormLabels {
 
 interface ContactFormProps {
   labels?: Partial<ContactFormLabels>;
+  serviceOptions?: ServiceOption[];
   formName?: string;
   endpoint?: string;
 }
@@ -43,9 +54,11 @@ interface ContactFormProps {
 const defaultLabels: ContactFormLabels = {
   name: 'Name',
   email: 'Email',
+  service: 'I am interested in',
   message: 'Message',
   namePlaceholder: 'John Doe',
   emailPlaceholder: 'john@example.com',
+  servicePlaceholder: 'Choose a topic',
   messagePlaceholder: 'How can we help you?',
   submit: 'Send Message',
   sending: 'Sending...',
@@ -61,15 +74,55 @@ const defaultLabels: ContactFormLabels = {
 
 const encodeFormData = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
-export default function ContactForm({ labels: labelOverrides, formName = 'contact', endpoint = '/' }: ContactFormProps) {
+const buildServiceMessage = (option: ServiceOption) => `${option.messageIntro}\n\n\n${option.messageRequest}`;
+
+export default function ContactForm({ labels: labelOverrides, serviceOptions = [], formName = 'contact', endpoint = '/' }: ContactFormProps) {
   const labels = { ...defaultLabels, ...labelOverrides };
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Errors>({});
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const lastAutoMessageRef = useRef('');
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    service: '',
     message: ''
   });
+
+  const applyService = (serviceId: string, focusMessageGap = false) => {
+    const selectedOption = serviceOptions.find((option) => option.id === serviceId);
+
+    setFormData((prev) => {
+      if (!selectedOption) {
+        return { ...prev, service: serviceId };
+      }
+
+      const autoMessage = buildServiceMessage(selectedOption);
+      const shouldReplaceMessage = !prev.message.trim() || prev.message === lastAutoMessageRef.current;
+      lastAutoMessageRef.current = autoMessage;
+
+      return {
+        ...prev,
+        service: serviceId,
+        message: shouldReplaceMessage ? autoMessage : prev.message,
+      };
+    });
+
+    if (selectedOption && focusMessageGap) {
+      const cursorPosition = selectedOption.messageIntro.length + 2;
+      window.setTimeout(() => {
+        messageRef.current?.focus();
+        messageRef.current?.setSelectionRange(cursorPosition, cursorPosition);
+      }, 0);
+    }
+  };
+
+  useEffect(() => {
+    const selectedService = new URLSearchParams(window.location.search).get('service');
+    if (selectedService) {
+      applyService(selectedService, true);
+    }
+  }, []);
 
   const validate = () => {
     const newErrors: Errors = {};
@@ -116,15 +169,20 @@ export default function ContactForm({ labels: labelOverrides, formName = 'contac
       }
 
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', service: '', message: '' });
     } catch {
       setStatus('error');
     }
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
+
+    if (id === 'service') {
+      applyService(value);
+    } else {
+      setFormData(prev => ({ ...prev, [id]: value }));
+    }
     // Clear error when user types
     if (errors[id]) {
       setErrors(prev => ({ ...prev, [id]: undefined }));
@@ -235,14 +293,35 @@ export default function ContactForm({ labels: labelOverrides, formName = 'contac
               )}
             </div>
 
+            {serviceOptions.length > 0 && (
+              <div>
+                <label htmlFor="service" className="block text-sm font-medium mb-2 text-muted-foreground">
+                  {labels.service}
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/10 border border-black/10 dark:border-white/10 outline-none transition-all text-foreground dark:text-white focus:border-primary focus:ring-1 focus:ring-primary"
+                >
+                  <option value="">{labels.servicePlaceholder}</option>
+                  {serviceOptions.map((option) => (
+                    <option key={option.id} value={option.id}>{option.label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2 text-muted-foreground">
                 {labels.message} <span className="text-red-500">*</span>
               </label>
               <textarea
+                ref={messageRef}
                 id="message"
                 name="message"
-                rows={4}
+                rows={6}
                 value={formData.message}
                 onChange={handleChange}
                 className={`w-full px-4 py-3 rounded-xl bg-white dark:bg-white/10 border outline-none transition-all placeholder:text-muted-foreground dark:placeholder:text-white/20 text-foreground dark:text-white resize-none
