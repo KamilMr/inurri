@@ -1,8 +1,8 @@
 {
-  "name": "tars-app",
+  "name": "inurri-app",
   "type": "module",
   "version": "0.0.1",
-  "description": "A premium Astro template engineered for the unknown. Built for speed, endurance, and exploration.",
+  "description": "Inurri website built with Astro, Tailwind CSS, and React.",
   "engines": {
     "node": ">=22.12.0"
   },

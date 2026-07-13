@@ -51,7 +51,7 @@ function getAdapter() {
 }
 
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://cooper.gladtek.com',
+  site: process.env.SITE_URL || 'https://www.inurri.pl',
   output: 'static',
   image: {
     domains: ['vitejs.dev', 'upload.wikimedia.org', 'astro.build', 'pagepro.co'],

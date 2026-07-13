@@ -3,8 +3,8 @@ module.exports = {
     collect: {
       staticDistDir: './dist/client',
       url: [
-        '/en/',
-        '/en/blog/future-of-web-dev/'
+        '/pl/',
+        '/pl/contact/'
       ],
       numberOfRuns: 2,
     },

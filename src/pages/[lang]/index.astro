@@ -25,31 +25,21 @@ const pageDescription = lang === 'pl'
             "@type": "WebSite",
             "name": "Inurri",
             "url": Astro.site,
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": {
-                    "@type": "EntryPoint",
-                    "urlTemplate": `${Astro.site}/search?q={search_term_string}`
-                },
-                "query-input": "required name=search_term_string"
-            }
+            "inLanguage": lang
         }} />
     <Schema item={{
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
+            "@type": "ProfessionalService",
             "name": "Inurri",
-            "operatingSystem": "Web",
-            "applicationCategory": "BusinessApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "120"
-            }
+            "url": Astro.site,
+            "description": pageDescription,
+            "areaServed": "PL",
+            "serviceType": [
+                "Strony internetowe",
+                "Aplikacje internetowe",
+                "Automatyzacja i integracja",
+                "Rozwiązania chmurowe"
+            ]
         }} />
 
     <HomeContent lang={lang} heroVariant="centered" />

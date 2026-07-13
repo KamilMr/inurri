@@ -2,7 +2,7 @@
 
 export const siteConfig = {
   name: 'Inurri',
-  description: 'Web solutions tailored to your needs.',
+  description: 'Strony i aplikacje internetowe dopasowane do potrzeb biznesu.',
   logo: {
     src: '/logo.png',
     srcDark: '/logo-dark.svg',       // Used when strategy is 'switch'
@@ -15,9 +15,9 @@ export const siteConfig = {
     enabled: false,
   },
   announcement: {
-    enabled: true,
-    id: 'upgrade_v2_0_0', // Change this ID to reshow the banner
-    link: '/changelog',
+    enabled: false,
+    id: 'inurri_announcement', // Change this ID to reshow the banner
+    link: '',
     localizeLink: true, // Set to true to apply i18n routing to the link, false for external/absolute links
   },
   blog: {
@@ -25,16 +25,16 @@ export const siteConfig = {
   },
   contact: {
     email: {
-      support: 'support@interstellar.com',
-      sales: 'sales@interstellar.com',
+      support: '',
+      sales: '',
     },
     phone: {
-      main: '+1 (555) 123-4567',
-      label: 'Mon-Fri 9am-6pm PST'
+      main: '',
+      label: ''
     },
     address: {
-      city: 'Endurance',
-      full: 'Interstellar Space Station'
+      city: 'Polska',
+      full: 'Polska'
     }
   },
   analytics: {
@@ -74,11 +74,11 @@ export const NAV_LINKS = [
 export const ACTION_LINKS = {
   primary: { label: 'Contact', href: '/contact' },
   social: { 
-    twitter: 'https://twitter.com/gladtek',
-    linkedin: 'https://linkedin.com/company/gladtek',
-    github: 'https://github.com/gladtek',
-    youtube: 'https://youtube.com/@gladtek',
-    facebook: 'https://facebook.com/gladtek'
+    twitter: '',
+    linkedin: '',
+    github: '',
+    youtube: '',
+    facebook: ''
     
   }
 };
