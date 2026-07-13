@@ -17,7 +17,6 @@ import FeaturesList from '~/components/sections/FeaturesList.astro';
 import FeatureItem from '~/components/ui/FeatureItem.astro';
 import Testimonials from '~/components/sections/Testimonials.astro';
 import Testimonial from '~/components/ui/Testimonial.astro';
-import CTA from '~/components/sections/CTA.astro';
 import FAQ from '~/components/sections/FAQ.astro';
 import LogoCloud from '~/components/sections/LogoCloud.astro';
 import TechStack from '~/components/sections/TechStack.astro';
@@ -210,10 +209,3 @@ const homeFaqs = [
     errorText={t['contactBox.error']}
 />
 
-<CTA
-    title={t['cta.readyToLaunch']}
-    description={t['cta.description']}
-    primaryBtn={{ text: t['cta.primary'], href: `/${lang}/pricing` }}
-    secondaryBtn={{ text: t['cta.secondary'], href: `/${lang}/contact` }}
-    disclaimer={t['cta.disclaimer']}
-/>
