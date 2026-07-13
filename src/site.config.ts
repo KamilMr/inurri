@@ -4,10 +4,10 @@ export const siteConfig = {
   name: 'Inurri',
   description: 'Web solutions tailored to your needs.',
   logo: {
-    src: '/logo.svg',
-    srcDark: '/logo.svg',       // Used when strategy is 'switch'
+    src: '/logo.png',
+    srcDark: '/logo.png',       // Used when strategy is 'switch'
     alt: 'Inurri Logo',
-    strategy: 'invert' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
+    strategy: 'static' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
   },
   ogImage: '/og-image.webp',
   primaryColor: '#06b6d4', // Primary accent color used for tints, shadows, and text accents
