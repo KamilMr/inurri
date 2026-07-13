@@ -4,9 +4,26 @@ import Newsletter from '~/components/islands/Newsletter';
 interface Props {
   title?: string;
   description?: string;
+  buttonText?: string;
+  placeholder?: string;
+  successTitle?: string;
+  successDescription?: string;
+  successAction?: string;
+  loadingText?: string;
+  errorText?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  buttonText,
+  placeholder,
+  successTitle,
+  successDescription,
+  successAction,
+  loadingText,
+  errorText,
+} = Astro.props;
 ---
 
 <section class="py-24 px-6">
@@ -14,7 +31,14 @@ const { title, description } = Astro.props;
         <Newsletter 
             client:visible 
             title={title} 
-            description={description} 
+            description={description}
+            buttonText={buttonText}
+            placeholder={placeholder}
+            successTitle={successTitle}
+            successDescription={successDescription}
+            successAction={successAction}
+            loadingText={loadingText}
+            errorText={errorText}
         />
     </div>
 </section>

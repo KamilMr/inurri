@@ -7,13 +7,23 @@ interface NewsletterProps {
   description?: string;
   buttonText?: string;
   placeholder?: string;
+  successTitle?: string;
+  successDescription?: string;
+  successAction?: string;
+  loadingText?: string;
+  errorText?: string;
 }
 
 export default function Newsletter({
   title = "Join the Frontier",
   description = "Get the latest updates on space-age engineering and interstellar design directly in your inbox.",
   buttonText = "Subscribe",
-  placeholder = "enter your email..."
+  placeholder = "enter your email...",
+  successTitle = "Thank you",
+  successDescription = "We will get back to you soon.",
+  successAction = "Send another email",
+  loadingText = "Sending...",
+  errorText = "Something went wrong. Please try again."
 }: NewsletterProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [email, setEmail] = useState("");
@@ -61,15 +71,15 @@ export default function Newsletter({
               <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center text-green-500">
                 <CheckCircle2 size={32} />
               </div>
-              <h3 className="text-2xl font-display font-bold">Welcome Aboard!</h3>
+              <h3 className="text-2xl font-display font-bold">{successTitle}</h3>
               <p className="text-muted-foreground max-w-sm">
-                You've successfully subscribed to our newsletter. Prepare for departure!
+                {successDescription}
               </p>
               <button 
                 onClick={() => setStatus("idle")}
                 className="text-sm font-medium text-primary hover:underline"
               >
-                Subscribe another email
+                {successAction}
               </button>
             </motion.div>
           ) : (
@@ -123,7 +133,7 @@ export default function Newsletter({
                         {status === "loading" ? (
                           <>
                             <Loader2 className="animate-spin" size={20} />
-                            <span>Processing...</span>
+                            <span>{loadingText}</span>
                           </>
                         ) : (
                           <>
@@ -144,7 +154,7 @@ export default function Newsletter({
                         className="absolute -bottom-8 left-0 text-xs text-red-500 flex items-center gap-1"
                       >
                         <AlertCircle size={12} />
-                        Something went wrong. Please try again.
+                        {errorText}
                       </motion.p>
                     )}
                   </AnimatePresence>
