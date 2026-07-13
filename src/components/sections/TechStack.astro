@@ -1,14 +1,14 @@
 ---
 import { clsx } from 'clsx';
-import { 
-  Atom, 
-  Wind, 
-  Zap, 
-  Layers, 
-  Cpu, 
-  Globe, 
-  Code2,
-  Rocket
+import {
+  Atom,
+  Cloud,
+  Globe,
+  LayoutTemplate,
+  PanelsTopLeft,
+  Rocket,
+  SearchCheck,
+  ShieldCheck,
 } from 'lucide-react';
 
 interface Props {
@@ -21,7 +21,7 @@ interface TechItem {
   id: string;
   name: string;
   icon: any;
-  category: 'core' | 'frontend' | 'design' | 'devtool' | 'devops';
+  category: 'framework' | 'frontend' | 'cms' | 'builder' | 'cloud' | 'tools';
   color: string;
 }
 
@@ -30,7 +30,7 @@ const TECH_STACK: TechItem[] = [
     id: 'astro',
     name: 'Astro',
     icon: Rocket,
-    category: 'core',
+    category: 'framework',
     color: 'text-orange-500',
   },
   {
@@ -41,55 +41,56 @@ const TECH_STACK: TechItem[] = [
     color: 'text-blue-400',
   },
   {
-    id: 'tailwind',
-    name: 'Tailwind CSS',
-    icon: Wind,
-    category: 'design',
-    color: 'text-cyan-400',
-  },
-  {
-    id: 'typescript',
-    name: 'TypeScript',
-    icon: Code2,
-    category: 'core',
+    id: 'wordpress',
+    name: 'WordPress',
+    icon: PanelsTopLeft,
+    category: 'cms',
     color: 'text-blue-600',
   },
   {
-    id: 'vite',
-    name: 'Vite',
-    icon: Zap,
-    category: 'devtool',
-    color: 'text-yellow-500',
+    id: 'wix',
+    name: 'Wix',
+    icon: LayoutTemplate,
+    category: 'builder',
+    color: 'text-indigo-500',
+  },
+  {
+    id: 'webflow',
+    name: 'Webflow',
+    icon: Globe,
+    category: 'builder',
+    color: 'text-blue-500',
+  },
+  {
+    id: 'aws',
+    name: 'AWS',
+    icon: Cloud,
+    category: 'cloud',
+    color: 'text-orange-500',
   },
   {
     id: 'cloudflare',
     name: 'Cloudflare',
-    icon: Globe,
-    category: 'devops',
+    icon: ShieldCheck,
+    category: 'cloud',
     color: 'text-orange-600',
   },
   {
-    id: 'motion',
-    name: 'Motion',
-    icon: Layers,
-    category: 'frontend',
-    color: 'text-pink-500',
+    id: 'google',
+    name: 'Google',
+    icon: SearchCheck,
+    category: 'tools',
+    color: 'text-green-500',
   },
-  {
-    id: 'lucide',
-    name: 'Lucide',
-    icon: Cpu,
-    category: 'design',
-    color: 'text-indigo-400',
-  }
 ];
 
 const CATEGORY_COLORS = {
-  core: 'bg-primary/10 text-primary dark:text-primary border-primary/20',
+  framework: 'bg-primary/10 text-primary dark:text-primary border-primary/20',
   frontend: 'bg-blue-600/10 text-blue-950 dark:text-blue-300 border-blue-600/20',
-  design: 'bg-purple-600/10 text-purple-950 dark:text-purple-300 border-purple-600/20',
-  devtool: 'bg-orange-600/10 text-orange-950 dark:text-orange-300 border-orange-600/20',
-  devops: 'bg-green-600/10 text-green-950 dark:text-green-300 border-green-600/20',
+  cms: 'bg-purple-600/10 text-purple-950 dark:text-purple-300 border-purple-600/20',
+  builder: 'bg-indigo-600/10 text-indigo-950 dark:text-indigo-300 border-indigo-600/20',
+  cloud: 'bg-orange-600/10 text-orange-950 dark:text-orange-300 border-orange-600/20',
+  tools: 'bg-green-600/10 text-green-950 dark:text-green-300 border-green-600/20',
 };
 ---
 
