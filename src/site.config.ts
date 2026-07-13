@@ -4,8 +4,8 @@ export const siteConfig = {
   name: 'Inurri',
   description: 'Strony i aplikacje internetowe dopasowane do potrzeb biznesu.',
   logo: {
-    src: '/logo.png',
-    srcDark: '/logo-dark.svg',       // Used when strategy is 'switch'
+    src: '/img/inurri_pen.svg',
+    srcDark: '/img/inurri_white_simple.svg',       // Used when strategy is 'switch'
     alt: 'Inurri Logo',
     strategy: 'switch' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
   },
@@ -73,13 +73,13 @@ export const NAV_LINKS = [
 
 export const ACTION_LINKS = {
   primary: { label: 'Contact', href: '/contact' },
-  social: { 
+  social: {
     twitter: '',
     linkedin: '',
     github: '',
     youtube: '',
     facebook: ''
-    
+
   }
 };
 

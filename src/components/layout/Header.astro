@@ -21,10 +21,10 @@ const translateNavLinks = (links: any[], lang: string, t: any): any[] => {
   return links.map(link => {
     const key = `nav.${link.label.toLowerCase().replace(/\s+/g, '.')}`;
     const descKey = `${key}.desc`;
-    
+
     const shouldLocalize = link.localize !== false;
     const href = (!shouldLocalize)
-      ? link.href 
+      ? link.href
       : `/${lang}${link.href.startsWith('/') ? '' : '/'}${link.href}`.replace(/\/$/, '') || `/${lang}`;
 
     return {
@@ -48,34 +48,34 @@ const primaryHref = `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : 
       {siteConfig.logo && (
         siteConfig.logo.strategy === 'switch' ? (
           <>
-            <img 
-              src={siteConfig.logo.src} 
-              alt={siteConfig.logo.alt} 
-              width="57"
-              height="57"
-              class="h-[3.6rem] w-auto group-hover:rotate-6 transition-transform duration-300 dark:hidden block"
+            <img
+              src={siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              width="86"
+              height="86"
+              class="h-[5.45rem] w-auto group-hover:rotate-6 transition-transform duration-300 dark:hidden block"
             />
-            <img 
-              src={siteConfig.logo.srcDark || siteConfig.logo.src} 
-              alt={siteConfig.logo.alt} 
-              width="57"
-              height="57"
-              class="h-[3.6rem] w-auto group-hover:rotate-6 transition-transform duration-300 hidden dark:block"
+            <img
+              src={siteConfig.logo.srcDark || siteConfig.logo.src}
+              alt={siteConfig.logo.alt}
+              width="86"
+              height="86"
+              class="h-[5.45rem] w-auto group-hover:rotate-6 transition-transform duration-300 hidden dark:block"
             />
           </>
         ) : (
-          <img 
-            src={siteConfig.logo.src} 
-            alt={siteConfig.logo.alt} 
-            width="57"
-            height="57"
-            class={`h-[3.6rem] w-auto group-hover:rotate-6 transition-transform duration-300 ${
+          <img
+            src={siteConfig.logo.src}
+            alt={siteConfig.logo.alt}
+            width="86"
+            height="86"
+            class={`h-[5.45rem] w-auto group-hover:rotate-6 transition-transform duration-300 ${
               siteConfig.logo.strategy === 'invert' ? 'dark:invert' : ''
             }`}
           />
         )
       )}
-      <span class="md:hidden lg:inline">{t['brand.name'] || siteConfig.name}</span>
+      <!-- <span class="md:hidden lg:inline">{t['brand.name'] || siteConfig.name}</span> -->
     </a>
     <div class="flex-1 flex justify-center mx-4 lg:mx-8">
       <DesktopNav client:only="react" links={links} currentPath={Astro.url.pathname} />
@@ -83,24 +83,24 @@ const primaryHref = `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : 
 
     {/* Mobile/Flyout Menu */}
     <div class="flex items-center gap-4 shrink-0">
-      {siteConfig.search.enabled && <Search 
-        client:only="react" 
-        placeholder={t['search.placeholder']} 
+      {siteConfig.search.enabled && <Search
+        client:only="react"
+        placeholder={t['search.placeholder']}
         lang={lang}
       />}
       <LanguagePicker availableLangs={availableLangs} />
       <ThemeToggle />
-      <a 
+      <a
         href={primaryHref}
         class="hidden md:block px-4 py-2 text-sm font-medium bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all"
       >
         {t['nav.cta']}
       </a>
-      
+
       <div class="md:hidden">
-        <MobileMenu 
-          client:only="react" 
-          links={links} 
+        <MobileMenu
+          client:only="react"
+          links={links}
           currentPath={Astro.url.pathname}
           ctaHref={primaryHref}
           labels={{
