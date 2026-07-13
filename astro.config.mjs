@@ -38,7 +38,7 @@ const stripIdsPlugin = () => (tree, file) => {
   }
 };
 
-const DEFAULT_LOCALE = "en";
+const DEFAULT_LOCALE = "pl";
 
 function getAdapter() {
   const adapter = process.env.ADAPTER || 'node';

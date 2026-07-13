@@ -1,8 +1,15 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import ContactForm from './ContactForm';
 
 describe('ContactForm', () => {
+  beforeEach(() => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true })));
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
   it('renders labels and inputs', () => {
     render(<ContactForm />);
     expect(screen.getByLabelText(/Name/i)).toBeInTheDocument();
@@ -32,7 +39,6 @@ describe('ContactForm', () => {
   });
 
   it('successfully submits the form', async () => {
-    // vi.useFakeTimers() for the setTimeout in HandleSubmit
     render(<ContactForm />);
     
     fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'John Doe', id: 'name' } });

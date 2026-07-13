@@ -1,9 +1,8 @@
 ---
 export const prerender = true;
 import Layout from '~/layouts/Layout.astro';
-import { siteConfig } from '~/site.config';
 import ContactForm from '~/components/islands/ContactForm';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, ListChecks, MessageSquare } from 'lucide-react';
 import PageHeader from '~/components/layout/PageHeader.astro';
 import Container from '~/components/ui/Container.astro';
 import Grid from '~/components/ui/Grid.astro';
@@ -16,9 +15,28 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = useTranslations(lang);
+
+const formLabels = {
+  name: t['contact.form.name'],
+  email: t['contact.form.email'],
+  message: t['contact.form.message'],
+  namePlaceholder: t['contact.form.name.placeholder'],
+  emailPlaceholder: t['contact.form.email.placeholder'],
+  messagePlaceholder: t['contact.form.message.placeholder'],
+  submit: t['contact.form.submit'],
+  sending: t['contact.form.sending'],
+  successTitle: t['contact.form.success.title'],
+  successDescription: t['contact.form.success.desc'],
+  successAction: t['contact.form.success.action'],
+  errorSubmit: t['contact.form.error.submit'],
+  requiredName: t['contact.form.error.name'],
+  requiredEmail: t['contact.form.error.email'],
+  invalidEmail: t['contact.form.error.email.invalid'],
+  requiredMessage: t['contact.form.error.message'],
+};
 ---
 
-<Layout title="Contact Us - Astro Boilerplate" description="Get in touch with our team.">
+<Layout title={t['contact.meta.title']} description={t['contact.meta.desc']}>
   <PageHeader 
       title={t['contact.title']}
       description={t['contact.desc']}
@@ -26,53 +44,57 @@ const t = useTranslations(lang);
 
   <Container as="section" class="pb-24">
       <Grid cols={2} class="gap-12">
-          <!-- Contact Info -->
+          <!-- Contact Guidance -->
           <div class="space-y-8">
-              <h2 class="text-2xl font-bold mb-6">{t['contact.info.title']}</h2>
-              
-              <div class="flex items-start gap-4">
-                  <div class="p-3 rounded-lg bg-primary/10 text-primary">
-                      <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                      <h3 class="font-bold mb-1">{t['contact.email']}</h3>
-                      <p class="text-muted-foreground">{siteConfig.contact.email.support}</p>
-                      <p class="text-muted-foreground">{siteConfig.contact.email.sales}</p>
-                  </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                  <div class="p-3 rounded-lg bg-primary/10 text-primary">
-                      <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                      <h3 class="font-bold mb-1">{t['contact.phone']}</h3>
-                      <p class="text-muted-foreground">{siteConfig.contact.phone.main}</p>
-                      <p class="text-muted-foreground">{siteConfig.contact.phone.label}</p>
-                  </div>
-              </div>
-
-               <div class="flex items-start gap-4">
-                  <div class="p-3 rounded-lg bg-primary/10 text-primary">
-                      <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                      <h3 class="font-bold mb-1">{t['contact.office']}</h3>
-                      <p class="text-muted-foreground">{siteConfig.contact.address.city}</p>
-                      <p class="text-muted-foreground">{siteConfig.contact.address.full}</p>
-                  </div>
+              <div>
+                  <p class="text-sm font-medium uppercase tracking-[0.2em] text-primary mb-3">{t['contact.info.eyebrow']}</p>
+                  <h2 class="text-2xl font-bold mb-4">{t['contact.info.title']}</h2>
+                  <p class="text-muted-foreground max-w-md">{t['contact.info.desc']}</p>
               </div>
               
-              <div class="p-6 rounded-2xl bg-linear-to-br from-primary/20 to-purple-500/20 border border-white/10 mt-8">
-                  <h3 class="font-bold mb-2">{t['contact.enterprise.title']}</h3>
-                  <p class="text-sm text-muted-foreground mb-4">{t['contact.enterprise.desc']}</p>
-                  <a href="#" class="text-sm font-medium text-primary hover:underline">{t['contact.enterprise.btn']} &rarr;</a>
+              <div class="space-y-5">
+                  <div class="flex items-start gap-4">
+                      <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                          <MessageSquare className="w-6 h-6" />
+                      </div>
+                      <div>
+                          <h3 class="font-bold mb-1">{t['contact.info.idea.title']}</h3>
+                          <p class="text-muted-foreground">{t['contact.info.idea.desc']}</p>
+                      </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                      <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                          <ListChecks className="w-6 h-6" />
+                      </div>
+                      <div>
+                          <h3 class="font-bold mb-1">{t['contact.info.scope.title']}</h3>
+                          <p class="text-muted-foreground">{t['contact.info.scope.desc']}</p>
+                      </div>
+                  </div>
+
+                  <div class="flex items-start gap-4">
+                      <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                          <Clock className="w-6 h-6" />
+                      </div>
+                      <div>
+                          <h3 class="font-bold mb-1">{t['contact.info.reply.title']}</h3>
+                          <p class="text-muted-foreground">{t['contact.info.reply.desc']}</p>
+                      </div>
+                  </div>
               </div>
           </div>
 
           <!-- Contact Form -->
           <div>
-              <ContactForm client:only="react" />
+              <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+                  <input type="hidden" name="form-name" value="contact" />
+                  <input type="text" name="name" />
+                  <input type="email" name="email" />
+                  <textarea name="message"></textarea>
+                  <input name="bot-field" />
+              </form>
+              <ContactForm labels={formLabels} client:only="react" />
           </div>
       </Grid>
   </Container>
