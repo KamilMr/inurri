@@ -17,8 +17,6 @@ import FeaturesList from '~/components/sections/FeaturesList.astro';
 import FeatureItem from '~/components/ui/FeatureItem.astro';
 import Testimonials from '~/components/sections/Testimonials.astro';
 import Testimonial from '~/components/ui/Testimonial.astro';
-import Stats from '~/components/sections/Stats.astro';
-import StatItem from '~/components/ui/StatItem.astro';
 import CTA from '~/components/sections/CTA.astro';
 import FAQ from '~/components/sections/FAQ.astro';
 import LogoCloud from '~/components/sections/LogoCloud.astro';
@@ -52,12 +50,6 @@ const benefits = [
   { title: t['benefits.6.title'], description: t['benefits.6.desc'], icon: ShieldCheck },
 ];
 
-const stats = [
-  { value: "10k+", label: t['stats.downloads'] },
-  { value: "99.9%", label: t['stats.uptime'] },
-  { value: "50M+", label: t['stats.requests'] },
-  { value: "24/7", label: t['stats.support'] },
-];
 
 const testimonials = [
   { text: t['testimonials.1.text'], author: t['testimonials.1.author'], role: t['testimonials.1.role'] },
@@ -183,13 +175,6 @@ const homeFaqs = [
     </div>
 </Section>
 
-<Section class="py-0 overflow-visible">
-<Stats>
-    {stats.map((stat) => (
-        <StatItem value={stat.value} label={stat.label} />
-    ))}
-</Stats>
-</Section>
 
 <Section class="py-0 overflow-visible">
 <Testimonials>
