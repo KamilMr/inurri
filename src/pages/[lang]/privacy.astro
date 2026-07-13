@@ -1,0 +1,177 @@
+---
+export const prerender = true;
+
+import Layout from '~/layouts/Layout.astro';
+import { languages } from '~/i18n/ui';
+
+export async function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang = 'en' } = Astro.params;
+
+const content = {
+  en: {
+    title: 'Privacy Policy',
+    description: 'Privacy policy for Inurri.',
+    intro: 'Your privacy matters. This policy explains what data may be processed when you use this website or contact us.',
+    sections: [
+      {
+        title: 'Introduction',
+        paragraphs: [
+          'This Privacy Policy explains how Inurri (“we”, “us” or “our”) approaches data related to visiting this website and contacting us. We do not provide user accounts and we do not require personal data to browse the website.',
+        ],
+      },
+      {
+        title: 'What information may be processed',
+        paragraphs: ['When using the website, the following information may be processed:'],
+        items: [
+          'Data provided in a message: email address and message content if you contact us by form or email.',
+          'Technical data: information such as IP address, browser type, device, and visited pages may be processed by the hosting provider, currently Netlify.',
+          'Analytics: if Google Analytics is enabled on the website, statistical visit data may be processed.',
+          'Cookies: cookies may be used by external tools if needed for analytics or proper website operation.',
+        ],
+      },
+      {
+        title: 'How information is used',
+        paragraphs: [
+          'Data provided directly is used only to reply to your message and continue communication. Technical or statistical data may help maintain the website, check that it works correctly, and understand general visit numbers.',
+        ],
+      },
+      {
+        title: 'Data protection',
+        paragraphs: [
+          'Access to messages provided directly is limited to people who need it to handle communication. Please remember that no method of sending data over the Internet can guarantee complete security.',
+        ],
+      },
+      {
+        title: 'Third-party services',
+        paragraphs: [
+          'The website is hosted by Netlify, which may process technical data needed to make the website available. In the future, we may use Google Analytics to review visit statistics. These services operate according to their own privacy policies.',
+        ],
+        links: [
+          { href: 'https://www.netlify.com/privacy/', label: 'Netlify Privacy Policy' },
+          { href: 'https://policies.google.com/privacy', label: 'Google Privacy Policy' },
+        ],
+      },
+      {
+        title: 'Your rights',
+        paragraphs: [
+          'If you provide data in a message, you may ask for information about its processing, correction, deletion, or limitation of further processing. For technical data processed by Netlify or Google Analytics, the privacy policies of those providers also apply.',
+        ],
+      },
+      {
+        title: 'Contact',
+        paragraphs: [
+          'If you have questions about this Privacy Policy or how data is handled, you can contact us through the contact page.',
+        ],
+        links: [
+          { href: `/${lang}/contact`, label: 'Contact page' },
+        ],
+      },
+    ],
+  },
+  pl: {
+    title: 'Polityka Prywatności',
+    description: 'Polityka prywatności Inurri.',
+    intro: 'Twoja prywatność jest dla nas ważna. Ta polityka opisuje, jakie dane mogą być przetwarzane podczas korzystania ze strony oraz kontaktu z nami.',
+    sections: [
+      {
+        title: 'Wprowadzenie',
+        paragraphs: [
+          'Niniejsza Polityka Prywatności wyjaśnia, w jaki sposób Inurri („my”, „nas” lub „nasze”) podchodzi do danych związanych z odwiedzaniem strony internetowej oraz kontaktem z nami. Nie prowadzimy kont użytkowników ani nie wymagamy podawania danych osobowych do przeglądania strony.',
+        ],
+      },
+      {
+        title: 'Jakie informacje mogą być przetwarzane',
+        paragraphs: ['Podczas korzystania ze strony mogą być przetwarzane następujące informacje:'],
+        items: [
+          'Dane przekazane w wiadomości: adres e-mail oraz treść wiadomości, jeśli skontaktujesz się z nami przez formularz lub pocztę elektroniczną.',
+          'Dane techniczne: informacje takie jak adres IP, typ przeglądarki, urządzenie oraz odwiedzane podstrony mogą być przetwarzane przez dostawcę hostingu, obecnie Netlify.',
+          'Analityka: jeśli na stronie zostanie włączone Google Analytics, mogą być przetwarzane dane statystyczne dotyczące odwiedzin strony.',
+          'Pliki cookie: mogą być używane przez zewnętrzne narzędzia, jeśli są potrzebne do analityki lub prawidłowego działania strony.',
+        ],
+      },
+      {
+        title: 'Jak wykorzystujemy informacje',
+        paragraphs: [
+          'Dane przekazane bezpośrednio wykorzystujemy wyłącznie do odpowiedzi na wiadomość i prowadzenia komunikacji. Dane techniczne lub statystyczne mogą pomagać w utrzymaniu strony, sprawdzaniu jej działania oraz ocenie ogólnej liczby odwiedzin.',
+        ],
+      },
+      {
+        title: 'Ochrona danych',
+        paragraphs: [
+          'Dostęp do wiadomości przekazanych bezpośrednio ograniczamy do osób, które potrzebują go w celu obsługi kontaktu. Należy jednak pamiętać, że żadna metoda przesyłania danych przez Internet nie daje pełnej gwarancji bezpieczeństwa.',
+        ],
+      },
+      {
+        title: 'Usługi stron trzecich',
+        paragraphs: [
+          'Strona jest hostowana przez Netlify, które może przetwarzać dane techniczne niezbędne do udostępniania strony. W przyszłości możemy korzystać z Google Analytics w celu analizy statystyk odwiedzin. Te usługi działają zgodnie z własnymi zasadami prywatności.',
+        ],
+        links: [
+          { href: 'https://www.netlify.com/privacy/', label: 'Polityka prywatności Netlify' },
+          { href: 'https://policies.google.com/privacy', label: 'Polityka prywatności Google' },
+        ],
+      },
+      {
+        title: 'Twoje prawa',
+        paragraphs: [
+          'Jeśli przekażesz nam dane w wiadomości, możesz poprosić o informację dotyczącą ich przetwarzania, sprostowanie, usunięcie lub ograniczenie dalszego przetwarzania. W sprawach dotyczących danych technicznych przetwarzanych przez Netlify lub Google Analytics zastosowanie mają również zasady prywatności tych dostawców.',
+        ],
+      },
+      {
+        title: 'Kontakt',
+        paragraphs: [
+          'Jeśli masz pytania dotyczące niniejszej Polityki Prywatności lub sposobu obsługi danych, możesz skontaktować się z nami przez stronę kontaktową.',
+        ],
+        links: [
+          { href: `/${lang}/contact`, label: 'Strona kontaktowa' },
+        ],
+      },
+    ],
+  },
+};
+
+const page = content[lang as keyof typeof content] ?? content.en;
+---
+
+<Layout title={`${page.title} | Inurri`} description={page.description}>
+    <div class="pt-32 pb-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">{page.title}</h1>
+            <p class="text-lg text-muted-foreground mb-10">
+                {page.intro}
+            </p>
+
+            <div class="prose dark:prose-invert max-w-none text-foreground/80">
+                {page.sections.map((section) => (
+                    <section>
+                        <h2 class="text-2xl font-bold mt-12 mb-4 text-foreground">{section.title}</h2>
+                        {section.paragraphs.map((paragraph) => (
+                            <p>{paragraph}</p>
+                        ))}
+                        {'items' in section && section.items && (
+                            <ul class="list-disc pl-6 space-y-2 mt-4">
+                                {section.items.map((item) => (
+                                    <li>{item}</li>
+                                ))}
+                            </ul>
+                        )}
+                        {'links' in section && section.links && (
+                            <ul class="list-disc pl-6 space-y-2 mt-4">
+                                {section.links.map((link) => (
+                                    <li>
+                                        <a href={link.href} class="text-primary hover:underline" target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </section>
+                ))}
+            </div>
+        </div>
+    </div>
+</Layout>

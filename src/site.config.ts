@@ -96,7 +96,7 @@ export const FOOTER_LINKS = {
   legal: {
     title: 'Legal',
     links: [
-      { href: '/privacy', label: 'Privacy', localize: false },
+      { href: '/privacy', label: 'Privacy' },
       { href: '/terms', label: 'Terms', localize: false }
     ],
   },
