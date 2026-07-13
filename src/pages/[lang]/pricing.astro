@@ -6,7 +6,6 @@ import Schema from '~/components/layout/Schema.astro';
 import PricingTable from '~/components/sections/PricingTable.astro';
 import PricingPlan from '~/components/sections/PricingPlan.astro';
 import FAQ from '~/components/sections/FAQ.astro';
-import ComparisonTable from '~/components/sections/ComparisonTable.astro';
 import { languages } from '~/i18n/ui';
 import { useTranslations } from '~/i18n/utils';
 import Container from '~/components/ui/Container.astro';
@@ -17,31 +16,50 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = useTranslations(lang);
+const contactHref = `/${lang}/contact`;
 
 const plans = [
   {
+    key: 'starter',
     name: t['pricing.starter.name'],
-    price: 0,
-    displayPrice: '$0',
+    price: 1200,
+    displayPrice: t['pricing.starter.price'],
     description: t['pricing.starter.desc'],
-    features: [t['pricing.feat.projects.limited'], t['pricing.feat.support.community'], t['pricing.feat.analytics.basic'], t['pricing.feat.response.48h']],
-    cta: t['pricing.cta.start'],
+    features: [
+      t['pricing.starter.item1'],
+      t['pricing.starter.item2'],
+      t['pricing.starter.item3'],
+      t['pricing.starter.item4'],
+    ],
+    cta: t['pricing.cta.contact'],
   },
   {
-    name: t['pricing.pro.name'],
-    price: 29,
-    displayPrice: '$29',
-    description: t['pricing.pro.desc'],
-    features: [t['pricing.feat.projects.unlimited'], t['pricing.feat.support.priority'], t['pricing.feat.analytics.advanced'], t['pricing.feat.response.24h'], t['pricing.feat.domain.custom']],
-    cta: t['pricing.cta.start'],
+    key: 'recommended',
+    name: t['pricing.recommended.name'],
+    price: 4800,
+    displayPrice: t['pricing.recommended.price'],
+    description: t['pricing.recommended.desc'],
+    features: [
+      t['pricing.recommended.item1'],
+      t['pricing.recommended.item2'],
+      t['pricing.recommended.item3'],
+      t['pricing.recommended.item4'],
+    ],
+    cta: t['pricing.cta.contact'],
     popular: true,
   },
   {
-    name: t['pricing.enterprise.name'],
-    price: 99,
-    displayPrice: '$99',
-    description: t['pricing.enterprise.desc'],
-    features: [t['pricing.feat.projects.unlimited'], t['pricing.feat.support.dedicated'], t['pricing.feat.integrations.custom'], t['pricing.feat.sla'], t['pricing.feat.sso']],
+    key: 'app',
+    name: t['pricing.app.name'],
+    price: 12000,
+    displayPrice: t['pricing.app.price'],
+    description: t['pricing.app.desc'],
+    features: [
+      t['pricing.app.item1'],
+      t['pricing.app.item2'],
+      t['pricing.app.item3'],
+      t['pricing.app.item4'],
+    ],
     cta: t['pricing.cta.contact'],
   },
 ];
@@ -52,42 +70,36 @@ const faqs = [
   { question: t['faq.pricing.3.q'], answer: t['faq.pricing.3.a'] },
   { question: t['faq.pricing.4.q'], answer: t['faq.pricing.4.a'] },
 ];
-
 ---
 
-<Layout title="Pricing - Astro Boilerplate" description="Simple, transparent pricing for everyone.">
-  
+<Layout title={t['pricing.meta.title']} description={t['pricing.meta.desc']}>
   <Schema item={{
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Cooper",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Web",
+    "@type": "Service",
+    "name": "Inurri",
+    "description": t['pricing.meta.desc'],
     "offers": plans.map(plan => ({
       "@type": "Offer",
       "name": plan.name,
       "price": String(plan.price),
-      "priceCurrency": "USD",
+      "priceCurrency": "PLN",
       "description": plan.description,
-      "url": `${Astro.site}${lang}/pricing`,
-      ...(plan.price > 0 && {
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": String(plan.price),
-          "priceCurrency": "USD",
-          "billingDuration": "P1M"
-        }
-      })
+      "url": new URL(`/${lang}/pricing`, Astro.site).toString()
     }))
   }} />
 
-  
   <PageHeader 
       title={t['pricing.title']}
       description={t['pricing.subtitle']}
   />
 
   <Container as="section" class="pb-24">
+      <div class="mb-10 rounded-3xl border border-primary/20 bg-primary/5 p-6 text-center">
+        <p class="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-2">{t['pricing.rate.label']}</p>
+        <p class="text-3xl md:text-4xl font-display font-bold">{t['pricing.rate.value']}</p>
+        <p class="mt-3 text-muted-foreground max-w-2xl mx-auto">{t['pricing.rate.desc']}</p>
+      </div>
+
       <PricingTable>
         {plans.map(plan => (
           <PricingPlan
@@ -97,40 +109,10 @@ const faqs = [
             features={plan.features}
             cta={plan.cta}
             popular={plan.popular}
+            ctaHref={contactHref}
           />
         ))}
       </PricingTable>
-
-      <div class="mt-24">
-        <ComparisonTable 
-          title={t['compare.title']}
-          subtitle={t['compare.subtitle']}
-          labels={{ features: t['compare.labels.features'], popular: t['compare.labels.popular'] }}
-          plans={plans.map(plan => ({
-            name: plan.name,
-            key: plan.name.toLowerCase(),
-            ...(plan.popular && { popular: true })
-          }))}
-          features={[
-            { category: t['compare.cat.core'], items: [
-                { name: t['compare.row.projects'], starter: t['compare.val.3'], pro: t['compare.val.unlimited'], enterprise: t['compare.val.unlimited'] },
-                { name: t['compare.row.users'], starter: t['compare.val.1'], pro: t['compare.val.5'], enterprise: t['compare.val.unlimited'] },
-                { name: t['compare.row.storage'], starter: t['compare.val.1gb'], pro: t['compare.val.10gb'], enterprise: t['compare.val.unlimited'] },
-            ]},
-            { category: t['compare.cat.analytics'], items: [
-                { name: t['compare.row.basic_analytics'], starter: true, pro: true, enterprise: true },
-                { name: t['compare.row.advanced_reports'], starter: false, pro: true, enterprise: true },
-                { name: t['compare.row.custom_dashboards'], starter: false, pro: true, enterprise: true },
-                { name: t['compare.row.audit_logs'], starter: false, pro: false, enterprise: true },
-            ]},
-            { category: t['compare.cat.support'], items: [
-                { name: t['compare.row.email_support'], starter: t['compare.val.standard'], pro: t['compare.val.priority'], enterprise: t['compare.val.dedicated'] },
-                { name: t['compare.row.sso'], starter: false, pro: false, enterprise: true },
-                { name: t['compare.row.sla'], starter: false, pro: false, enterprise: t['compare.val.99_99'] },
-            ]}
-          ]}
-        />
-      </div>
       
       <div class="mt-20">
           <FAQ items={faqs} />
