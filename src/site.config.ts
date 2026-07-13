@@ -5,9 +5,9 @@ export const siteConfig = {
   description: 'Web solutions tailored to your needs.',
   logo: {
     src: '/logo.png',
-    srcDark: '/logo.png',       // Used when strategy is 'switch'
+    srcDark: '/logo-dark.svg',       // Used when strategy is 'switch'
     alt: 'Inurri Logo',
-    strategy: 'static' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
+    strategy: 'switch' as 'invert' | 'switch' | 'static', // 'invert' | 'switch' | 'static'
   },
   ogImage: '/og-image.webp',
   primaryColor: '#06b6d4', // Primary accent color used for tints, shadows, and text accents

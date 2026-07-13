@@ -51,25 +51,25 @@ const primaryHref = `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : 
             <img 
               src={siteConfig.logo.src} 
               alt={siteConfig.logo.alt} 
-              width="32"
-              height="32"
-              class="h-8 w-auto group-hover:rotate-6 transition-transform duration-300 dark:hidden block"
+              width="38"
+              height="38"
+              class="h-[2.4rem] w-auto group-hover:rotate-6 transition-transform duration-300 dark:hidden block"
             />
             <img 
               src={siteConfig.logo.srcDark || siteConfig.logo.src} 
               alt={siteConfig.logo.alt} 
-              width="32"
-              height="32"
-              class="h-8 w-auto group-hover:rotate-6 transition-transform duration-300 hidden dark:block"
+              width="38"
+              height="38"
+              class="h-[2.4rem] w-auto group-hover:rotate-6 transition-transform duration-300 hidden dark:block"
             />
           </>
         ) : (
           <img 
             src={siteConfig.logo.src} 
             alt={siteConfig.logo.alt} 
-            width="32"
-            height="32"
-            class={`h-8 w-auto group-hover:rotate-6 transition-transform duration-300 ${
+            width="38"
+            height="38"
+            class={`h-[2.4rem] w-auto group-hover:rotate-6 transition-transform duration-300 ${
               siteConfig.logo.strategy === 'invert' ? 'dark:invert' : ''
             }`}
           />
