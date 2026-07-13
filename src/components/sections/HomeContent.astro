@@ -12,7 +12,7 @@ import Section from '~/components/layout/Section.astro';
 import LatestPosts from '~/components/sections/LatestPosts.astro';
 import BentoGrid from '~/components/sections/BentoGrid.astro';
 import BentoItem from '~/components/ui/BentoItem.astro';
-import { Cpu, Globe, Zap, BarChart, ShieldCheck, Settings, FileCode, Search, Moon, Eye } from 'lucide-react';
+import { Cpu, Globe, Zap, BarChart, ShieldCheck, Settings, FileCode, Search } from 'lucide-react';
 import FeaturesList from '~/components/sections/FeaturesList.astro';
 import FeatureItem from '~/components/ui/FeatureItem.astro';
 import Testimonials from '~/components/sections/Testimonials.astro';
@@ -44,12 +44,12 @@ const logos = [
 ];
 
 const benefits = [
-  { title: t['benefits.1.title'], description: t['benefits.1.desc'], icon: Settings },
-  { title: t['benefits.2.title'], description: t['benefits.2.desc'], icon: FileCode },
-  { title: t['benefits.3.title'], description: t['benefits.3.desc'], icon: Search },
-  { title: t['benefits.4.title'], description: t['benefits.4.desc'], icon: Moon },
-  { title: t['benefits.5.title'], description: t['benefits.5.desc'], icon: Eye },
-  { title: t['benefits.6.title'], description: t['benefits.6.desc'], icon: Globe },
+  { title: t['benefits.1.title'], description: t['benefits.1.desc'], icon: Zap },
+  { title: t['benefits.2.title'], description: t['benefits.2.desc'], icon: Search },
+  { title: t['benefits.3.title'], description: t['benefits.3.desc'], icon: FileCode },
+  { title: t['benefits.4.title'], description: t['benefits.4.desc'], icon: Settings },
+  { title: t['benefits.5.title'], description: t['benefits.5.desc'], icon: Globe },
+  { title: t['benefits.6.title'], description: t['benefits.6.desc'], icon: ShieldCheck },
 ];
 
 const stats = [
