@@ -1,141 +1,175 @@
-# Cooper - The Ultimate Astro Boilerplate
+# Inurri project codebase findings
 
-The advanced, batteries-included template for building blazing-fast modern web applications with **Astro 7**, **Tailwind CSS 4.2**, and **React 19**.
+This repository is an Astro-based website/app that started from the Cooper/GladTek boilerplate and has been partially adapted for Inurri.
 
-<p align="center">
-  <img src="https://img.shields.io/github/v/release/gladtek/cooper?color=%231A81FA&label=Latest&logo=%20" alt="Latest Release" />
-</p>
+## Stack
 
-| Cloudflare | Netlify | Vercel |
-| :--- | :--- | :--- |
-| [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/GladTek/Cooper) | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/GladTek/Cooper) | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FGladTek%2FCooper) |
+- Astro 7
+- Tailwind CSS 4
+- React 19 islands
+- TypeScript
+- Astro Content Collections
+- Vitest for unit/component tests
+- Playwright for E2E tests
+- Deployment adapters configured for Cloudflare, Netlify, Vercel, and Node
 
-## Live Demos
+## Main structure
 
-| Platform   | URL                                      |
-| :--------- | :--------------------------------------- |
-| **Cloudflare** | [https://cooper.gladtek.com/](https://cooper.gladtek.com/) |
-| **Netlify**    | [https://astro-cooper.netlify.app/](https://astro-cooper.netlify.app/) |
-| **Vercel**     | [https://astro-cooper.vercel.app/](https://astro-cooper.vercel.app/) |
+Important files and folders:
 
-## Core Architectural Strategies
+- `astro.config.mjs` — Astro config, adapters, i18n, sitemap, markdown plugins.
+- `src/site.config.ts` — global site config: branding, nav, footer, search, contact/social config.
+- `src/layouts/Layout.astro` — main HTML layout, header/footer, SEO, analytics, cookie consent.
+- `src/components/layout/Header.astro` — desktop/mobile nav, logo, language picker, theme toggle.
+- `src/components/layout/Footer.astro` — footer links and copyright.
+- `src/components/layout/SEO.astro` — meta tags, canonical URL, Open Graph, Twitter tags.
+- `src/pages/[lang]/index.astro` — localized homepage route.
+- `src/components/sections/HomeContent.astro` — homepage section composition.
+- `src/i18n/locales/pl.properties` — Polish translations.
+- `src/i18n/locales/en.properties` — English translations.
+- `src/content.config.ts` — content collection schemas.
+- `src/content/` — blog, portfolio, docs, changelog, authors content.
+- `tests/` — Playwright tests.
+- `src/components/islands/ContactForm.test.tsx` — Vitest test.
+- `todo.md` — current adaptation plan.
 
-This boilerplate is built on several key architectural pillars designed for scale, performance, and developer experience.
+## Current project state
 
-### 1. Atomic Component Strategy
-We categorize components into functional layers to ensure a clear separation of concerns:
-- **UI (Atoms)**: Fundamental building blocks like `Button`, `Badge`, `Heading`, and `Card`.
-- **Sections (Molecules/Organisms)**: Composed marketing sections like `Hero`, `FeaturesList`, `CTA`, and `PricingTable`.
-- **Layout (Structure)**: Page-level structure including `Header`, `Footer`, `SEO`, and `Breadcrumbs`.
-- **Blog (Contextual)**: Content-specific elements like `BlogCard`, `ChangelogItem`, and `TableOfContents`.
-- **Common (Utilities)**: System-level utilities like `ThemeToggle`, `LanguagePicker`, and `CookieConsent`.
+The project is only partially converted from Cooper/GladTek to Inurri.
 
-### 2. Documentation-First Approach
-The project features a high-performance documentation engine powered by **MDX** and **Fuse.js**:
-- **Categorized Sidebar**: Documentation is automatically grouped by folder (e.g., `ui`, `sections`, `layout`).
-- **Premium Typography**: Custom-styled prose optimized for readability.
-- **Deep Linking**: Automatic anchor links and perfect scroll alignment with a sticky header.
+Already adapted:
 
-### 3. Type-Safe Internationalization (i18n)
-- **Flat File Dictionary**: Localizations are managed via type-safe `.ts` and `.properties` files.
-- **RTL Support**: Automatic layout mirroring for languages like Arabic (`/ar/`).
-- **Path Persistence**: Switching languages preserves the current page path.
+- Site name/logo mostly changed to Inurri.
+- Main navigation simplified to home, portfolio/work, pricing, contact.
+- Homepage hero adapted to Inurri messaging.
+- Homepage services/bento section adapted.
+- Benefits section adapted.
+- Tech stack section adapted.
+- Homepage stats/blog/testimonials mostly hidden or removed from homepage composition.
+- Footer partially adapted.
+- Privacy pages added/localized.
+- Search disabled via `siteConfig.search.enabled = false`.
 
-### 4. Robust Testing Suite
-The boilerplate includes a pre-configured, production-ready testing infrastructure:
-- **E2E Testing (Playwright)**: Automated flows for Form Submissions, Search Indexing, Language Switching, and Responsiveness.
-- **Unit/Component Testing (Vitest)**: Fast, reliable testing for core logic and React islands using JSDOM.
+Still boilerplate-heavy:
 
----
+- `package.json` still uses boilerplate identity: `tars-app`.
+- Original README content was Cooper boilerplate documentation before this findings file replaced it.
+- `astro.config.mjs` defaults `site` to `https://cooper.gladtek.com`.
+- `src/site.config.ts` still contains Interstellar/GladTek contact/social values.
+- Pricing page is still SaaS subscription pricing.
+- Portfolio entries are still sample GladTek projects.
+- Blog, docs, changelog, demo, showcase, about, features, checkout routes still exist.
+- Many translation keys still mention Cooper, boilerplate, Interstellar, product SaaS copy, etc.
+- Tests still expect old Cooper behavior and old routes/features.
 
-## Features
+## Routing and i18n notes
 
-### Core Stack
-- **Astro 7**: The latest version of the web framework for content-driven websites.
-- **Tailwind CSS 4.2**: Engine-integrated utility-first CSS using modern CSS variables.
-- **React 19**: Powered by React 19 for modern concurrent rendering and optimized hydration.
-- **TypeScript 6.0**: 100% type-safe codebase.
+- Default locale is Polish: `DEFAULT_LOCALE = "pl"` in `astro.config.mjs`.
+- Configured locales are only `en` and `pl`.
+- Some content still exists for `ar`, `de`, and `fr`, and Astro currently generates routes for those content entries through collection-based pages.
+- Main localized pages are under `src/pages/[lang]/...`.
+- Root `/` currently redirects to the default locale.
 
-### Accessibility & Performance
-- **WCAG AA/AAA Compliant**: Accessible color contrast and focus state management.
-- **SSR/Hydration Optimized**: Production-grade Vite configuration resolving common hydration conflicts.
-- **Core Web Vitals**: Precision optimization for LCP and CLS out of the box.
+## Content collections
 
----
+Collections configured in `src/content.config.ts`:
 
-## Getting Started
+- `blog`
+- `portfolio`
+- `docs`
+- `changelog`
+- `authors`
 
-### Quick Start
-Initialize a new project instantly:
+The current content is mostly boilerplate/demo content and should be cleaned if not needed for Inurri.
+
+## Build and test findings
+
+### Build
+
+Command run:
+
 ```bash
-npx @gladtek/launch-cooper@latest
+pnpm run build
 ```
 
-### Manual Setup
-1. **Install dependencies** (Requires **pnpm 10+**)
-   ```bash
-   pnpm install
-   ```
-2. **Configure Environment**
-   ```bash
-   cp .env.example .env
-   ```
-3. **Start the dev server**
-   ```bash
-   pnpm run dev
-   ```
+Result: passes.
 
----
+Notable build output:
 
-## Testing
+- Many boilerplate routes are still generated, including docs, demo, blog, changelog, and non-configured language content routes.
+- Build logs missing Polish author entries for blog author pages.
+- Vite reports some chunks larger than 500 KB.
 
-Cooper comes with a comprehensive testing suite to ensure stability across deployments.
+### Astro check
 
-### End-to-End (E2E)
-We use **Playwright** for full browser testing of critical user journeys.
+Command run:
+
 ```bash
-pnpm run test:e2e        # Run all E2E tests
-pnpm run test:e2e:ui     # Open Playwright UI for debugging
-```
-The suite covers:
-- **Contact Flows**: Form validation and submission states.
-- **I18n**: Correct language rendering and RTL switching.
-- **Search**: Real-time indexing and navigation results.
-- **Responsive**: Mobile menu functionality and layout adjustments.
-
-### Unit & Component
-We use **Vitest** for fast testing of isolated logic and components.
-```bash
-pnpm run test:unit       # Run all unit tests
-pnpm run test:unit:watch # Watch mode
+pnpm astro check
 ```
 
----
+Result: fails.
 
-## Performance Benchmarks 🚀
+Main errors:
 
-Cooper is engineered for speed and accessibility. We enforce these standards via **Lighthouse CI** as a mandatory quality gate for every build:
+- `src/components/islands/ContactForm.test.tsx` imports `screen`, `fireEvent`, and `waitFor` from `@testing-library/react`, but the dependency/type setup is broken.
+- Warnings also include unused `LatestPosts` import in `HomeContent.astro`.
 
-| Category | Minimum Score | Severity |
-| :--- | :---: | :--- |
-| ⚡ **Performance** | **90** | `Warn` |
-| ♿ **Accessibility** | **95** | `Error` |
-| 🛡️ **Best Practices** | **90** | `Error` |
-| 🔍 **SEO** | **95** | `Error` |
+### Unit tests
 
-*Automated audits are performed on the **Homepage** and **Key Blog Content** for every PR to ensure zero performance regression.*
+Command run:
 
----
+```bash
+pnpm run test:unit
+```
 
-## Deployment
+Result: fails.
 
-The project supports multi-adapter deployment out of the box. Use the corresponding build command:
+Main error:
 
-- **Cloudflare**: `pnpm run build:cloudflare` (Recommended)
-- **Vercel**: `pnpm run build:vercel`
-- **Netlify**: `pnpm run build:netlify`
-- **Node.js**: `pnpm run build` (Default)
+- `Cannot find module '@testing-library/dom'` required by `@testing-library/react`.
 
----
+### E2E tests
 
-**Built by Gladtek with ❤️ and the help of AI agents**
+The Playwright tests are stale. They still expect old Cooper UI behavior, such as:
+
+- Cooper branding.
+- “Ship Faster with” hero text.
+- Search palette enabled.
+- Docs/demo navigation.
+- Arabic/French language switching.
+
+These tests need rewriting before they are useful for the Inurri version.
+
+## Deployment/config concerns
+
+- Project says `output: 'static'`, but some routes use `prerender = false`, including:
+  - `src/pages/index.astro`
+  - `src/pages/privacy.astro`
+  - `src/pages/api/search.json.ts`
+- The project has both `pnpm-lock.yaml` and `package-lock.json`.
+- `packageManager` says pnpm, but deployment config uses npm commands in some places.
+- Deployment package-manager strategy should be standardized.
+
+## Highest-risk leftovers before production
+
+1. Boilerplate public routes still available.
+2. Boilerplate metadata and URLs.
+3. Boilerplate pricing and portfolio content.
+4. Stale tests that do not describe current behavior.
+5. Non-configured language content still generating pages.
+6. Contact/social config still pointing to old placeholder/GladTek/Interstellar data.
+
+## Recommended future workflow
+
+Work in small, focused steps:
+
+1. Global config/SEO cleanup.
+2. Route/content cleanup.
+3. Pricing page adaptation.
+4. Portfolio content replacement.
+5. Contact form behavior decision.
+6. Test suite rewrite.
+7. Final build, route check, mobile nav check, and SEO verification.
+
+Use `todo.md` as the task source and make only one approved change set at a time.
