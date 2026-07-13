@@ -22,32 +22,37 @@ const t = useTranslations(lang);
 
       </div>
       
-      {Object.entries(FOOTER_LINKS).map(([key, section]) => (
-        <div>
-          <div class="font-semibold mb-4 text-foreground">{t[`footer.${key}` as keyof typeof t] || section.title}</div>
-          <ul class="space-y-2 text-sm text-foreground/90">
-            {section.links.map((link: any) => {
-              
-              const shouldLocalize = link.localize !== false;
-              const href = (!shouldLocalize)
-                ? link.href 
-                : `/${lang}${link.href.startsWith('/') ? '' : '/'}${link.href}`.replace(/\/$/, '') || `/${lang}`;
-              
-              return (
-                <li>
-                  <a 
-                    href={href} 
-                    class="hover:text-foreground transition-colors"
-                    aria-label={t[`footer.${link.label.toLowerCase()}` as keyof typeof t] || link.label}
-                  >
-                    {t[`footer.${link.label.toLowerCase()}` as keyof typeof t] || link.label}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ))}
+      {Object.entries(FOOTER_LINKS).map(([key, section]) => {
+        const visibleLinks = section.links.filter((link: any) => !link.hidden);
+        if (visibleLinks.length === 0) return null;
+
+        return (
+          <div>
+            <div class="font-semibold mb-4 text-foreground">{t[`footer.${key}` as keyof typeof t] || section.title}</div>
+            <ul class="space-y-2 text-sm text-foreground/90">
+              {visibleLinks.map((link: any) => {
+                
+                const shouldLocalize = link.localize !== false;
+                const href = (!shouldLocalize)
+                  ? link.href 
+                  : `/${lang}${link.href.startsWith('/') ? '' : '/'}${link.href}`.replace(/\/$/, '') || `/${lang}`;
+                
+                return (
+                  <li>
+                    <a 
+                      href={href} 
+                      class="hover:text-foreground transition-colors"
+                      aria-label={t[`footer.${link.label.toLowerCase()}` as keyof typeof t] || link.label}
+                    >
+                      {t[`footer.${link.label.toLowerCase()}` as keyof typeof t] || link.label}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        );
+      })}
     </div>
 
     <div class="pt-8 border-t border-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -55,7 +60,7 @@ const t = useTranslations(lang);
         {(t['footer.copyright'] || '').replace('{year}', today.getFullYear().toString())}
       </div>
       
-      <div class="flex gap-4">
+      <div class="hidden gap-4">
         <a href={ACTION_LINKS.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-muted-foreground hover:text-foreground transition-colors" aria-label="LinkedIn">
           <BrandIcon icon="linkedin" className="w-5 h-5" strokeWidth={1.5} />
         </a>

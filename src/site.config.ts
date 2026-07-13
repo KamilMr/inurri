@@ -87,10 +87,10 @@ export const FOOTER_LINKS = {
   product: {
     title: 'Product',
     links: [
-      { href: '/features', label: 'Features' },
-      { href: '/about', label: 'About' },
-      { href: '/pricing', label: 'Pricing' },
-      { href: '/changelog', label: 'Changelog' },
+      { href: '/features', label: 'Features', hidden: true },
+      { href: '/about', label: 'About', hidden: true },
+      { href: '/pricing', label: 'Pricing', hidden: true },
+      { href: '/changelog', label: 'Changelog', hidden: true },
     ],
   },
   legal: {
