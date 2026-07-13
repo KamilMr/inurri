@@ -5,16 +5,20 @@
   --muted: #f1f5f9;
   --muted-foreground: #334155; /* Slate 700 - solid contrast for secondary text */
   --primary-foreground: #ffffff;
+  --color-primary: #06b6d4;
+  --color-tech-purple: #9333ea;
+  --color-tech-teal: #06b6d4;
+  --color-tech-dark: #0f0921;
 }
 
 /* Dark Theme */
 .dark {
   --background: #000000;
   --foreground: #ffffff;
-  --color-primary: #60a5fa;
+  --color-primary: #06b6d4;
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
-  --primary-foreground: #000000;
+  --primary-foreground: #ffffff;
 }
 
 body {

@@ -1,3 +1,36 @@
+.bg-gradient-tech,
+.btn-primary,
+.bg-primary {
+  background: linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2);
+}
+
+.btn-primary {
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary,
+.btn-secondary-tech {
+  border: 1px solid var(--color-tech-teal);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover,
+.btn-secondary-tech:hover {
+  background: var(--color-tech-teal);
+  color: var(--color-tech-dark);
+}
+
 .link-preview {
   --link-preview-corners: 0.5em;
   --link-preview-padding-inline: 0.75rem;
