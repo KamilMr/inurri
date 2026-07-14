@@ -1,9 +1,9 @@
 ---
-title: 'Panel administracyjny ProsteZapisy'
-description: 'Panel administracyjny zapisów.'
-pubDate: '2026-07-13'
+title: 'ProsteZapisy.pl'
+description: 'Panel administracyjny'
+pubDate: '2026-06-20'
 heroImage: '/portfolio/prostezapisy-panel.webp'
-tags: ['Panel administracyjny', 'React']
+tags: ['Aplikacja webowa', 'React']
 ---
 
 ## Cel projektu

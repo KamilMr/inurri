@@ -1,7 +1,7 @@
 ---
 title: 'Psychoterapia Kamil Mrówka'
-description: 'Landing page psychoterapii.'
-pubDate: '2026-07-13'
+description: 'Landing page'
+pubDate: '2023-04-20'
 heroImage: '/portfolio/psychoterapia-kamilmrowka.webp'
 tags: ['Strona wizytówkowa', 'Psychoterapia']
 link: 'https://www.psychoterapia-kamilmrowka.pl/'

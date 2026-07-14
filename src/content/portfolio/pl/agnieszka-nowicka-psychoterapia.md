@@ -1,7 +1,7 @@
 ---
 title: 'Agnieszka Nowicka Psychoterapia'
-description: 'Strona wizytówkowa psychoterapii.'
-pubDate: '2026-07-13'
+description: 'Strona wizytówkowa.'
+pubDate: '2022-01-10'
 heroImage: '/portfolio/agnieszka-nowicka-psychoterapia.webp'
 tags: ['Strona wizytówkowa', 'Psychoterapia']
 link: 'https://www.agnieszkanowicka-psychoterapia.pl/'
