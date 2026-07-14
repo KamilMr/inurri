@@ -120,7 +120,7 @@ const serviceOptions = [
                   <textarea name="message"></textarea>
                   <input name="bot-field" />
               </form>
-              <ContactForm labels={formLabels} serviceOptions={serviceOptions} client:only="react" />
+              <ContactForm labels={formLabels} serviceOptions={serviceOptions} endpoint={`/${lang}/contact/`} client:only="react" />
           </div>
       </Grid>
   </Container>
