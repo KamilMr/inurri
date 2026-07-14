@@ -1,6 +1,6 @@
 ---
 title: 'Plateforme de Connectivité Mondiale'
-description: 'Une plateforme de connectivité mondiale reliant les gens au-delà des frontières.'
+description: 'Plateforme de connectivité mondiale.'
 pubDate: '2024-03-15'
 heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
 tags: ["Mondial", "React", "Node.js"]

@@ -1,6 +1,6 @@
 ---
 title: 'Agnieszka Nowicka Psychotherapy'
-description: 'A service website for a psychotherapist in Kraków, built around a calm first impression, clear offer presentation, and simple contact path.'
+description: 'Psychotherapy service website.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/agnieszka-nowicka-psychoterapia.webp'
 tags: ['Service website', 'Psychotherapy']

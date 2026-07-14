@@ -1,6 +1,6 @@
 ---
 title: 'Panel administracyjny ProsteZapisy'
-description: 'Panel do zarządzania kalendarzem, dostępnością i zapisami w systemie ProsteZapisy, zbudowany w React i połączony z tym samym backendem aplikacji.'
+description: 'Panel administracyjny zapisów.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/prostezapisy-panel.webp'
 tags: ['Panel administracyjny', 'React']

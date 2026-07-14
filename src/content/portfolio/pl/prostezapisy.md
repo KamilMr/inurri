@@ -1,6 +1,6 @@
 ---
 title: 'ProsteZapisy.pl'
-description: 'Aplikacja webowa do przyjmowania zapisów online bez własnej strony internetowej, z publicznym linkiem do kalendarza i powiadomieniami e-mail.'
+description: 'Aplikacja webowa do zapisów.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/prostezapisy.webp'
 tags: ['Aplikacja webowa', 'Zapisy online']

@@ -1,6 +1,6 @@
 ---
 title: 'ProsteZapisy.pl'
-description: 'A web application for accepting online bookings without a personal website, using a public calendar link and email notifications.'
+description: 'Web app for online bookings.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/prostezapisy.webp'
 tags: ['Web app', 'Online booking']

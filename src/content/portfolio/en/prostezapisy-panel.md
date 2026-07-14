@@ -1,6 +1,6 @@
 ---
 title: 'ProsteZapisy Admin Panel'
-description: 'An admin panel for managing calendar availability and bookings in ProsteZapisy, built with React and connected to the same application backend.'
+description: 'Admin panel for bookings.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/prostezapisy-panel.webp'
 tags: ['Admin panel', 'React']

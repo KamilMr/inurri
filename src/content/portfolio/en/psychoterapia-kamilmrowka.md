@@ -1,6 +1,6 @@
 ---
 title: 'Psychoterapia Kamil Mrówka'
-description: 'A psychotherapy landing page focused on a calm first impression, clear messaging, a simple path toward contact, and online payment.'
+description: 'Psychotherapy landing page.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/psychoterapia-kamilmrowka.webp'
 tags: ['Service website', 'Psychotherapy']

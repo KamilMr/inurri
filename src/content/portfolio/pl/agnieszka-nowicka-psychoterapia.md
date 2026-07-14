@@ -1,6 +1,6 @@
 ---
 title: 'Agnieszka Nowicka Psychoterapia'
-description: 'Strona wizytówkowa dla psychoterapeutki z Krakowa, oparta na spokojnym pierwszym wrażeniu, przejrzystej prezentacji oferty i prostym kontakcie.'
+description: 'Strona wizytówkowa psychoterapii.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/agnieszka-nowicka-psychoterapia.webp'
 tags: ['Strona wizytówkowa', 'Psychoterapia']

@@ -1,6 +1,6 @@
 ---
 title: 'Psychoterapia Kamil Mrówka'
-description: 'Strona wizytówkowa (landing page) dla gabinetu psychoterapii, zbudowana wokół spokojnego pierwszego wrażenia, jasnego przekazu, prostego kontaktu i płatności online.'
+description: 'Landing page psychoterapii.'
 pubDate: '2026-07-13'
 heroImage: '/portfolio/psychoterapia-kamilmrowka.webp'
 tags: ['Strona wizytówkowa', 'Psychoterapia']

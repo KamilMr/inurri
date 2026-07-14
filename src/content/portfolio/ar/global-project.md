@@ -1,6 +1,6 @@
 ---
 title: 'منصة الاتصال العالمية'
-description: 'منصة اتصال عالمية تربط الناس عبر الحدود.'
+description: 'منصة اتصال عالمية.'
 pubDate: '2024-03-15'
 heroImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80'
 tags: ["عالمي", "React", "Node.js"]
