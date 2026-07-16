@@ -20,7 +20,7 @@ const { name, price, description, features, cta, ctaHref = `/${lang}/contact`, p
 const period = t['pricing.perMonth'];
 ---
 
-<div class={`relative p-8 rounded-3xl border flex flex-col ${popular ? 'bg-black/10 dark:bg-white/10 border-primary/50 shadow-2xl shadow-primary/20' : 'bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/10'}`}>
+<div class={`pricing-plan relative p-8 rounded-3xl border flex flex-col transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 active:bg-black/10 dark:active:bg-white/10 active:border-primary/50 active:shadow-2xl active:shadow-primary/20 focus-within:bg-black/10 dark:focus-within:bg-white/10 focus-within:border-primary/50 focus-within:shadow-2xl focus-within:shadow-primary/20 ${popular ? 'bg-black/10 dark:bg-white/10 border-primary/50 shadow-2xl shadow-primary/20' : 'bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/10'}`}>
   {popular && (
     <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-linear-to-r from-primary to-purple-500 rounded-full text-xs font-bold text-white uppercase tracking-wider">
       {t['pricing.mostPopular']}
