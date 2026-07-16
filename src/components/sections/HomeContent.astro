@@ -31,6 +31,9 @@ export interface Props {
 const { lang, heroVariant = 'centered' } = Astro.props;
 const t = useTranslations(lang);
 
+// Keep the logo cloud ready for reuse, but hide it from the homepage for now.
+const showLogoCloud = false;
+
 const logos = [
   { name: 'Vite', src: logoVite, description: t['logo.vite.desc'] },
   { name: 'Cloudflare', src: logoCloudflare, description: t['logo.cloudflare.desc'] },
@@ -79,7 +82,7 @@ const homeFaqs = [
     secondaryCta={{ text: t['hero.learnMore'], href: `/${lang}/portfolio` }}
 />
 
-<LogoCloud title={t['logo.title']} logos={logos} />
+{showLogoCloud && <LogoCloud title={t['logo.title']} logos={logos} />}
 
 <Section class="py-0 overflow-visible">
 <BentoGrid

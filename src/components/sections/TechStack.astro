@@ -95,26 +95,33 @@ const CATEGORY_COLORS = {
 ---
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-  {TECH_STACK.map((tech) => (
-    <div class="group relative p-6 rounded-2xl border border-foreground/15 bg-background/95 backdrop-blur-sm hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
-      <div class="flex items-start justify-between mb-4">
-        <div class={clsx("p-3 rounded-xl bg-foreground/5 transition-colors group-hover:bg-primary/10", tech.color)}>
-          <tech.icon className="w-6 h-6" />
-        </div>
-        <span class={clsx("text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full border transition-colors", CATEGORY_COLORS[tech.category])}>
-          {t[`techstack.category.${tech.category}`]}
-        </span>
-      </div>
-      
-      <h3 class="text-lg font-bold mb-1 group-hover:text-primary transition-colors italic">
-        {tech.name}
-      </h3>
-      <p class="text-sm text-foreground/90 dark:text-foreground/80 leading-relaxed font-medium">
-        {t[`techstack.item.${tech.id}.desc`]}
-      </p>
+  {TECH_STACK.map((tech) => {
+    const description = t[`techstack.item.${tech.id}.desc`] ?? '';
 
-      {/* Background Glow */}
-      <div class="absolute inset-0 rounded-2xl bg-primary/0 group-hover:bg-primary/2 transition-colors -z-1" />
-    </div>
-  ))}
+    return (
+      <div class="group relative p-6 rounded-2xl border border-foreground/15 bg-background/95 backdrop-blur-sm hover:border-primary/40 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
+        <div class="flex items-start justify-between mb-4">
+          <div class={clsx("p-3 rounded-xl bg-foreground/5 transition-colors group-hover:bg-primary/10", tech.color)}>
+            <tech.icon className="w-6 h-6" />
+          </div>
+          <span class={clsx("text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full border transition-colors", CATEGORY_COLORS[tech.category])}>
+            {t[`techstack.category.${tech.category}`]}
+          </span>
+        </div>
+        
+        <h3 class={clsx(
+          "text-lg font-bold group-hover:text-primary transition-colors italic",
+          description && "mb-1"
+        )}>
+          {tech.name}
+        </h3>
+        <p class="text-sm text-foreground/90 dark:text-foreground/80 leading-relaxed font-medium">
+          {description}
+        </p>
+
+        {/* Background Glow */}
+        <div class="absolute inset-0 rounded-2xl bg-primary/0 group-hover:bg-primary/2 transition-colors -z-1" />
+      </div>
+    );
+  })}
 </div>

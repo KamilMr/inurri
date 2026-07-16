@@ -1,32 +1,16 @@
 ---
-title: 'Panel administracyjny ProsteZapisy'
-description: 'Panel do zarządzania kalendarzem, dostępnością i zapisami w systemie ProsteZapisy, zbudowany w React i połączony z tym samym backendem aplikacji.'
-pubDate: '2026-07-13'
+title: 'ProsteZapisy.pl'
+description: 'Panel administracyjny'
+pubDate: '2026-06-20'
 heroImage: '/portfolio/prostezapisy-panel.webp'
-tags: ['Panel administracyjny', 'React']
+tags: ['Aplikacja webowa', 'React']
 ---
 
-## Cel projektu
+Panel administracyjny został stworzony jako wewnętrzna część aplikacji ProsteZapisy. Pozwala użytkownikowi zarządzać kalendarzem, dostępnością oraz ustawieniami zapisów z jednego miejsca. Użytkownik może przygotować terminy w panelu, a klienci widzą je później w publicznym linku do zapisów.
 
-Panel administracyjny powstał jako część systemu ProsteZapisy. Jego zadaniem jest umożliwienie użytkownikowi zarządzania kalendarzem, dostępnością i ustawieniami bez potrzeby obsługi rozbudowanego narzędzia.
-
-To wewnętrzna część aplikacji, dlatego nie prowadzi do publicznej strony ani widoku dostępnego dla odwiedzających. Użytkownik korzysta z niej po zalogowaniu, żeby przygotować terminy, które później mogą zobaczyć klienci w publicznym linku do zapisów.
-
-## Zakres
-
-- przygotowanie panelu administracyjnego w React,
-- widok kalendarza z tygodniowym układem terminów,
-- boczna nawigacja z mini kalendarzem,
-- zarządzanie dostępnością i blokami czasu,
-- sekcja ustawień użytkownika,
-- integracja z tym samym backendem, który obsługuje publiczne zapisy.
-
-## Podejście
-
-Panel został zaprojektowany tak, żeby najważniejszy element systemu — kalendarz — był od razu widoczny po wejściu do aplikacji. Lewy pasek pełni funkcję szybkiej nawigacji, a główna część ekranu skupia się na terminach i dostępności.
-
-React został wykorzystany do stworzenia interaktywnego interfejsu panelu. Dane, terminy i ustawienia są obsługiwane przez ten sam backend, który działa pod publiczną częścią ProsteZapisy.
-
-## Efekt
-
-Powstał prywatny panel do obsługi systemu zapisów, który uzupełnia publiczną stronę produktową i widok rezerwacji dla klientów. Dzięki temu ProsteZapisy działa jako kompletna aplikacja: użytkownik zarządza terminami w panelu, a klient zapisuje się przez prosty publiczny link.
+### Zakres pracy
+* Panel administracyjny
+* Widok kalendarza
+* Zarządzanie dostępnością
+* Zarządzanie blokami czasu
+* Ustawienia użytkownika

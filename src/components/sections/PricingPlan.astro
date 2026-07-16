@@ -20,7 +20,7 @@ const { name, price, description, features, cta, ctaHref = `/${lang}/contact`, p
 const period = t['pricing.perMonth'];
 ---
 
-<div class={`relative p-8 rounded-3xl border flex flex-col ${popular ? 'bg-black/10 dark:bg-white/10 border-primary/50 shadow-2xl shadow-primary/20' : 'bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/10'}`}>
+<div class="pricing-plan relative p-8 rounded-3xl border flex flex-col bg-black/5 dark:bg-white/5 border-black/5 dark:border-white/10 transition-all duration-300 hover:bg-black/10 dark:hover:bg-white/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 active:bg-black/10 dark:active:bg-white/10 active:border-primary/50 active:shadow-2xl active:shadow-primary/20 focus-within:bg-black/10 dark:focus-within:bg-white/10 focus-within:border-primary/50 focus-within:shadow-2xl focus-within:shadow-primary/20">
   {popular && (
     <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-linear-to-r from-primary to-purple-500 rounded-full text-xs font-bold text-white uppercase tracking-wider">
       {t['pricing.mostPopular']}
@@ -47,12 +47,84 @@ const period = t['pricing.perMonth'];
 
   <a 
     href={ctaHref}
-    class={`block w-full py-3 px-6 rounded-xl text-center font-medium transition-all ${
-        popular 
-        ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105' 
-        : 'bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20'
-    }`}
+    class="block w-full py-3 px-6 rounded-xl text-center font-medium text-white bg-linear-to-r from-primary to-purple-500 transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/20"
   >
     {cta}
   </a>
 </div>
+
+<style>
+  @media (max-width: 767px) {
+    .pricing-plan.is-in-view {
+      background-color: rgb(0 0 0 / 0.1);
+      border-color: rgb(6 182 212 / 0.5);
+      box-shadow: 0 25px 50px -12px rgb(6 182 212 / 0.2);
+    }
+
+    :global(.dark) .pricing-plan.is-in-view {
+      background-color: rgb(255 255 255 / 0.1);
+    }
+  }
+</style>
+
+<script>
+  const pricingCards = Array.from(document.querySelectorAll('.pricing-plan'));
+  const mobilePricingCards = window.matchMedia('(max-width: 767px)');
+  let pricingCardsObserver;
+
+  const clearPricingCardHighlights = () => {
+    pricingCards.forEach((card) => card.classList.remove('is-in-view'));
+  };
+
+  const setupPricingCardObserver = () => {
+    if (pricingCardsObserver) {
+      pricingCardsObserver.disconnect();
+    }
+
+    clearPricingCardHighlights();
+
+    if (!mobilePricingCards.matches || !('IntersectionObserver' in window)) {
+      return;
+    }
+
+    const visibleCards = new Map();
+
+    const updateActiveCard = () => {
+      let activeCard = null;
+      let activeRatio = 0;
+
+      visibleCards.forEach((ratio, card) => {
+        if (ratio > activeRatio) {
+          activeCard = card;
+          activeRatio = ratio;
+        }
+      });
+
+      clearPricingCardHighlights();
+
+      if (activeCard && activeRatio >= 0.35) {
+        activeCard.classList.add('is-in-view');
+      }
+    };
+
+    pricingCardsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visibleCards.set(entry.target, entry.intersectionRatio);
+        } else {
+          visibleCards.delete(entry.target);
+        }
+      });
+
+      updateActiveCard();
+    }, {
+      rootMargin: '-15% 0px -15% 0px',
+      threshold: [0, 0.25, 0.35, 0.5, 0.65, 0.8, 1],
+    });
+
+    pricingCards.forEach((card) => pricingCardsObserver.observe(card));
+  };
+
+  setupPricingCardObserver();
+  mobilePricingCards.addEventListener('change', setupPricingCardObserver);
+</script>
