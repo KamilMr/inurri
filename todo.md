@@ -94,7 +94,7 @@ Main content problems:
 
 ## Milestone 2: rewrite reusable template pages instead of deleting them
 
-- [ready] CONTENT-006 Rewrite features page content for Inurri services and technology strengths
+- [pending-review] CONTENT-006 Rewrite features page content for Inurri services and technology strengths
   - Replace Astro boilerplate/product claims with Inurri-relevant capabilities.
   - Keep the reusable features page structure.
   - Provide complete English and Polish copy.
