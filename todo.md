@@ -72,12 +72,12 @@ Main content problems:
   - Keep labels such as `Blog`, `GitHub`, and brand names unchanged where appropriate.
   - Audit note: visible header keys are `nav.home`, `nav.work`, `nav.pricing`, `nav.contact`, `nav.cta`, and `nav.menu`; visible footer keys are `footer.quote`, `footer.copyright`, `footer.legal`, `footer.privacy`, and `footer.terms`.
 
-- [pending-review] CONTENT-004 Rewrite 404 page copy in English and Polish
+- [done] CONTENT-004 Rewrite 404 page copy in English and Polish
   - Replace generic “void”/space-themed copy with Inurri-appropriate language.
   - Translate all Polish 404 labels.
   - Keep the tone helpful and simple.
 
-- [pending] CONTENT-005 Clean blog UI labels without removing blog functionality
+- [ready] CONTENT-005 Clean blog UI labels without removing blog functionality
   - Translate Polish blog labels such as previous/next/page/read more/back/no posts/updated on.
   - Keep the blog system and reusable blog-related code intact.
   - Make English labels consistent in casing and tone.
