@@ -94,13 +94,13 @@ Main content problems:
 
 ## Milestone 2: rewrite reusable template pages instead of deleting them
 
-- [pending-review] CONTENT-006 Rewrite features page content for Inurri services and technology strengths
+- [done] CONTENT-006 Rewrite features page content for Inurri services and technology strengths
   - Replace Astro boilerplate/product claims with Inurri-relevant capabilities.
   - Keep the reusable features page structure.
   - Provide complete English and Polish copy.
   - Audit note: `/en|pl/features` is public by direct URL but hidden from current header/footer.
 
-- [pending] CONTENT-007 Rewrite about page content for Inurri
+- [ready] CONTENT-007 Rewrite about page content for Inurri
   - Replace Interstellar/NASA placeholder story, team, and timeline copy.
   - Use a personal/freelancer narrative aligned with Kamil Mrówka and Inurri.
   - Keep reusable page sections if they can support a future about page.
