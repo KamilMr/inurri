@@ -46,21 +46,31 @@ Main content problems:
 
 ## Milestone 1: protect the public Inurri experience
 
-- [ready] CONTENT-001 Audit visible routes and map which locale keys are actually public
+- [pending-review] CONTENT-001 Audit visible routes and map which locale keys are actually public
   - Check current navigation, footer, linked pages, generated routes, and public demo routes.
   - Identify which placeholder sections are visible to real visitors.
   - Do not remove reusable code during this task.
   - Add notes under the relevant later tasks if priority changes.
+  - Audit notes:
+    - Header links only to localized home, portfolio/work, pricing, and contact; the header CTA also links to contact.
+    - Footer currently shows only the legal section with privacy and unlocalized terms; product links for features, about, pricing, and changelog are configured as hidden.
+    - Home renders hero, bento, benefits, tech stack, FAQ, and contact box. Announcement, search, logo cloud, latest posts, and testimonials are disabled or hidden by current config/data.
+    - Primary linked localized routes are `/en|pl`, `/portfolio`, `/pricing`, `/contact`, `/privacy`; `/terms` is a public unlocalized root route.
+    - Generated but unlinked localized routes remain publicly reachable by direct URL: blog index/posts/authors/tags, changelog, features, about, checkout, design, showcase, portfolio detail pages, and localized 404.
+    - Public unlocalized template/demo routes also exist at `/docs`, `/docs/*`, `/demo/home-*`, `/privacy`, `/license`, and `/404`.
+    - Most urgent visible placeholder copy is on direct public template routes: 404, blog UI/content, features, about, changelog, showcase/compare, checkout, design/docs/demo, plus root legal pages.
 
 - [pending] CONTENT-002 Remove public-facing Astro boilerplate language from primary CTAs
   - Review `cta.*`, `announcement.*`, and `opensource.*` content.
   - Replace product/free-trial/open-source boilerplate copy with Inurri service copy where visible.
   - If a section is disabled or unused, keep reusable keys but make the copy neutral or clearly non-public.
+  - Audit note: announcement/search/open-source notification are not visible from current config, but `cta.*` copy can appear on direct public changelog pages.
 
 - [pending] CONTENT-003 Finish Polish translations for primary navigation and footer content
   - Translate remaining English navigation descriptions in `pl.properties` where they can appear in menus.
   - Review `nav.*` and `footer.*` for natural Polish.
   - Keep labels such as `Blog`, `GitHub`, and brand names unchanged where appropriate.
+  - Audit note: visible header keys are `nav.home`, `nav.work`, `nav.pricing`, `nav.contact`, `nav.cta`, and `nav.menu`; visible footer keys are `footer.quote`, `footer.copyright`, `footer.legal`, `footer.privacy`, and `footer.terms`.
 
 - [pending] CONTENT-004 Rewrite 404 page copy in English and Polish
   - Replace generic “void”/space-themed copy with Inurri-appropriate language.
@@ -71,6 +81,7 @@ Main content problems:
   - Translate Polish blog labels such as previous/next/page/read more/back/no posts/updated on.
   - Keep the blog system and reusable blog-related code intact.
   - Make English labels consistent in casing and tone.
+  - Audit note: blog routes are generated and public by direct URL, although they are not linked from current header/footer/home.
 
 ## Milestone 2: rewrite reusable template pages instead of deleting them
 
@@ -78,26 +89,31 @@ Main content problems:
   - Replace Astro boilerplate/product claims with Inurri-relevant capabilities.
   - Keep the reusable features page structure.
   - Provide complete English and Polish copy.
+  - Audit note: `/en|pl/features` is public by direct URL but hidden from current header/footer.
 
 - [pending] CONTENT-007 Rewrite about page content for Inurri
   - Replace Interstellar/NASA placeholder story, team, and timeline copy.
   - Use a personal/freelancer narrative aligned with Kamil Mrówka and Inurri.
   - Keep reusable page sections if they can support a future about page.
+  - Audit note: `/en|pl/about` is public by direct URL but hidden from current header/footer; it still renders Interstellar images and copy.
 
 - [pending] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
   - Replace product-release/newsletter boilerplate with neutral Inurri updates language, or mark the page as reusable/internal.
   - Translate Polish changelog UI labels if the page remains public.
   - Do not delete changelog code or content collections unless explicitly approved later.
+  - Audit note: `/en|pl/changelog` and changelog detail routes are public by direct URL but hidden from current header/footer.
 
 - [pending] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
   - Replace generic plan comparison and interactive showcase copy with Inurri-relevant wording, or keep it neutral for future reuse.
   - Translate Polish values that are not intentionally technical or numeric.
   - Do not remove the comparison/showcase components during this task.
+  - Audit note: `/en|pl/showcase` is public by direct URL but hidden from current header/footer.
 
 - [pending] CONTENT-010 Rewrite checkout copy or clearly isolate checkout as unused reusable flow
   - Replace subscription/payment boilerplate if checkout is publicly reachable.
   - If checkout is not part of the current business model, keep code but make content neutral or hide/unlink the route in a separate approved task.
   - Preserve `{plan}` placeholders if still used.
+  - Audit note: `/en|pl/checkout` is public by direct URL but hidden from current header/footer; no current pricing CTA links to it.
 
 ## Milestone 3: polish existing Inurri copy
 
@@ -127,6 +143,7 @@ Main content problems:
   - Check whether testimonial fields render anywhere.
   - If visible, add real placeholder-safe content or hide empty testimonials without deleting the reusable testimonial component.
   - If not visible, document that they are intentionally empty.
+  - Audit note: homepage filters out testimonials with empty text, author, or role, so the current empty testimonial locale values do not render.
 
 - [pending] CONTENT-016 Normalize brand voice across both locale files
   - Remove accidental `we/our/product/subscription` voice where Inurri should speak as a personal service provider.
@@ -142,3 +159,8 @@ Main content problems:
   - Identify keys that are unused by current pages/components.
   - Do not delete reusable keys automatically.
   - Propose a later cleanup only for keys confirmed obsolete and not useful for future reusable sections.
+
+- [pending] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
+  - Review `/docs`, `/docs/*`, `/demo/home-*`, `/design`, `/terms`, `/privacy`, and `/license` for public boilerplate visibility.
+  - Decide whether to rewrite, hide, noindex, or keep them as reusable/internal reference pages.
+  - Do not delete reusable docs, demo, or legal page code without explicit approval.
