@@ -77,11 +77,20 @@ Main content problems:
   - Translate all Polish 404 labels.
   - Keep the tone helpful and simple.
 
-- [pending-review] CONTENT-005 Clean blog UI labels without removing blog functionality
+- [review] CONTENT-005 Clean blog UI labels without removing blog functionality
   - Translate Polish blog labels such as previous/next/page/read more/back/no posts/updated on.
   - Keep the blog system and reusable blog-related code intact.
   - Make English labels consistent in casing and tone.
   - Audit note: blog routes are generated and public by direct URL, although they are not linked from current header/footer/home.
+  - Reviewer notes:
+    - `npm run build` passes.
+    - Remaining blog UI labels are incomplete: English `blog.videoContent` is still title case, and `BlogCard.astro` still renders hardcoded `Video`/`Audio` badges instead of localized labels.
+
+- [ready] CONTENT-005a Finish remaining blog badge labels and English casing
+  - parent: CONTENT-005
+  - Change English `blog.videoContent` to sentence case.
+  - Localize the blog card media badges instead of rendering hardcoded `Video` and `Audio` labels.
+  - Preserve blog functionality and locale key parity.
 
 ## Milestone 2: rewrite reusable template pages instead of deleting them
 
