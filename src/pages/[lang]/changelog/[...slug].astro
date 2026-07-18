@@ -6,6 +6,7 @@ import ChangelogSidebar from '~/components/changelog/ChangelogSidebar.astro';
 import Container from '~/components/ui/Container.astro';
 import Section from '~/components/layout/Section.astro';
 import PageHeader from '~/components/layout/PageHeader.astro';
+import { useTranslations } from '~/i18n/utils';
 
 export async function getStaticPaths() {
   const entries = await getCollection('changelog');
@@ -26,15 +27,16 @@ interface Props {
 const { entry } = Astro.props;
 const { lang } = Astro.params;
 const { Content } = await render(entry);
+const t = useTranslations(lang);
 
 ---
 
 <Layout 
-    title={`v${entry.data.version}: ${entry.data.title} - Changelog`}
+    title={`v${entry.data.version}: ${entry.data.title} - ${t['changelog.detail.meta']}`}
     description={entry.data.description}
 >
     <PageHeader 
-        title={`Release <span class="text-primary">v${entry.data.version}</span>`}
+        title={`${t['changelog.detail.release']} <span class="text-primary">v${entry.data.version}</span>`}
         description={entry.data.description}
     />
 

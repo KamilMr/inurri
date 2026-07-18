@@ -23,7 +23,7 @@ const entries = (await getCollection('changelog'))
 ---
 
 <Layout 
-    title={`${t['nav.changelog']} - Cooper`} 
+    title={`${t['nav.changelog']} - Inurri`} 
     description={t['changelog.hero.subtitle']}
 >
     <PageHeader 
@@ -67,8 +67,8 @@ const entries = (await getCollection('changelog'))
                             variant="boxed"
                             title={t['changelog.updated.title']}
                             description={t['changelog.updated.description']}
-                            primaryBtn={{ text: t['changelog.updated.follow'], href: 'https://linkedin.com/company/gladtek' }}
-                            secondaryBtn={{ text: t['changelog.updated.newsletter'], href: 'https://linkedin.com/company/gladtek' }}
+                            primaryBtn={{ text: t['changelog.updated.follow'], href: `/${lang}/contact` }}
+                            secondaryBtn={{ text: t['changelog.updated.newsletter'], href: `/${lang}/pricing` }}
                         />
                     </div>
                 </div>

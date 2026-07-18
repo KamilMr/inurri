@@ -106,7 +106,7 @@ Main content problems:
   - Keep reusable page sections if they can support a future about page.
   - Audit note: `/en|pl/about` is public by direct URL but hidden from current header/footer; it still renders Interstellar images and copy.
 
-- [ready] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
+- [pending-review] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
   - Replace product-release/newsletter boilerplate with neutral Inurri updates language, or mark the page as reusable/internal.
   - Translate Polish changelog UI labels if the page remains public.
   - Do not delete changelog code or content collections unless explicitly approved later.
