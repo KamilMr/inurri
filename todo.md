@@ -46,7 +46,7 @@ Main content problems:
 
 ## Milestone 1: protect the public Inurri experience
 
-- [pending-review] CONTENT-001 Audit visible routes and map which locale keys are actually public
+- [done] CONTENT-001 Audit visible routes and map which locale keys are actually public
   - Check current navigation, footer, linked pages, generated routes, and public demo routes.
   - Identify which placeholder sections are visible to real visitors.
   - Do not remove reusable code during this task.
@@ -60,7 +60,7 @@ Main content problems:
     - Public unlocalized template/demo routes also exist at `/docs`, `/docs/*`, `/demo/home-*`, `/privacy`, `/license`, and `/404`.
     - Most urgent visible placeholder copy is on direct public template routes: 404, blog UI/content, features, about, changelog, showcase/compare, checkout, design/docs/demo, plus root legal pages.
 
-- [pending] CONTENT-002 Remove public-facing Astro boilerplate language from primary CTAs
+- [ready] CONTENT-002 Remove public-facing Astro boilerplate language from primary CTAs
   - Review `cta.*`, `announcement.*`, and `opensource.*` content.
   - Replace product/free-trial/open-source boilerplate copy with Inurri service copy where visible.
   - If a section is disabled or unused, keep reusable keys but make the copy neutral or clearly non-public.
