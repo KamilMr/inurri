@@ -60,13 +60,13 @@ Main content problems:
     - Public unlocalized template/demo routes also exist at `/docs`, `/docs/*`, `/demo/home-*`, `/privacy`, `/license`, and `/404`.
     - Most urgent visible placeholder copy is on direct public template routes: 404, blog UI/content, features, about, changelog, showcase/compare, checkout, design/docs/demo, plus root legal pages.
 
-- [pending-review] CONTENT-002 Remove public-facing Astro boilerplate language from primary CTAs
+- [done] CONTENT-002 Remove public-facing Astro boilerplate language from primary CTAs
   - Review `cta.*`, `announcement.*`, and `opensource.*` content.
   - Replace product/free-trial/open-source boilerplate copy with Inurri service copy where visible.
   - If a section is disabled or unused, keep reusable keys but make the copy neutral or clearly non-public.
   - Audit note: announcement/search/open-source notification are not visible from current config, but `cta.*` copy can appear on direct public changelog pages.
 
-- [pending] CONTENT-003 Finish Polish translations for primary navigation and footer content
+- [ready] CONTENT-003 Finish Polish translations for primary navigation and footer content
   - Translate remaining English navigation descriptions in `pl.properties` where they can appear in menus.
   - Review `nav.*` and `footer.*` for natural Polish.
   - Keep labels such as `Blog`, `GitHub`, and brand names unchanged where appropriate.
