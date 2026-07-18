@@ -77,7 +77,7 @@ Main content problems:
   - Translate all Polish 404 labels.
   - Keep the tone helpful and simple.
 
-- [ready] CONTENT-005 Clean blog UI labels without removing blog functionality
+- [pending-review] CONTENT-005 Clean blog UI labels without removing blog functionality
   - Translate Polish blog labels such as previous/next/page/read more/back/no posts/updated on.
   - Keep the blog system and reusable blog-related code intact.
   - Make English labels consistent in casing and tone.
