@@ -106,11 +106,19 @@ Main content problems:
   - Keep reusable page sections if they can support a future about page.
   - Audit note: `/en|pl/about` is public by direct URL but hidden from current header/footer; it still renders Interstellar images and copy.
 
-- [pending-review] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
+- [review] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
   - Replace product-release/newsletter boilerplate with neutral Inurri updates language, or mark the page as reusable/internal.
   - Translate Polish changelog UI labels if the page remains public.
   - Do not delete changelog code or content collections unless explicitly approved later.
   - Audit note: `/en|pl/changelog` and changelog detail routes are public by direct URL but hidden from current header/footer.
+  - Reviewer notes:
+    - `npm run build` passes.
+    - The changelog remains public, but `/en/changelog` still renders Cooper/Astro release content from `src/content/changelog/en/*.md` such as “Project Genesis”, “Cooper v0.0.1”, release notes, migration guides, and open-source/product-roadmap language.
+    - The implementation updates many UI labels, but it does not complete the required replacement/isolation of product-release boilerplate changelog content.
+
+- [ready] CONTENT-008a Rewrite or isolate visible changelog entry content
+  - parent: CONTENT-008
+  - Replace the public English changelog entry titles, descriptions, and body copy with neutral reusable/Inurri update notes, or clearly isolate the changelog entries as internal/reusable without deleting changelog code or content collections.
 
 - [pending] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
   - Replace generic plan comparison and interactive showcase copy with Inurri-relevant wording, or keep it neutral for future reuse.
