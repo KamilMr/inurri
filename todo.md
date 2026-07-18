@@ -66,7 +66,7 @@ Main content problems:
   - If a section is disabled or unused, keep reusable keys but make the copy neutral or clearly non-public.
   - Audit note: announcement/search/open-source notification are not visible from current config, but `cta.*` copy can appear on direct public changelog pages.
 
-- [ready] CONTENT-003 Finish Polish translations for primary navigation and footer content
+- [pending-review] CONTENT-003 Finish Polish translations for primary navigation and footer content
   - Translate remaining English navigation descriptions in `pl.properties` where they can appear in menus.
   - Review `nav.*` and `footer.*` for natural Polish.
   - Keep labels such as `Blog`, `GitHub`, and brand names unchanged where appropriate.
