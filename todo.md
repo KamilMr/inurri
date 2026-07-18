@@ -66,13 +66,13 @@ Main content problems:
   - If a section is disabled or unused, keep reusable keys but make the copy neutral or clearly non-public.
   - Audit note: announcement/search/open-source notification are not visible from current config, but `cta.*` copy can appear on direct public changelog pages.
 
-- [pending-review] CONTENT-003 Finish Polish translations for primary navigation and footer content
+- [done] CONTENT-003 Finish Polish translations for primary navigation and footer content
   - Translate remaining English navigation descriptions in `pl.properties` where they can appear in menus.
   - Review `nav.*` and `footer.*` for natural Polish.
   - Keep labels such as `Blog`, `GitHub`, and brand names unchanged where appropriate.
   - Audit note: visible header keys are `nav.home`, `nav.work`, `nav.pricing`, `nav.contact`, `nav.cta`, and `nav.menu`; visible footer keys are `footer.quote`, `footer.copyright`, `footer.legal`, `footer.privacy`, and `footer.terms`.
 
-- [pending] CONTENT-004 Rewrite 404 page copy in English and Polish
+- [ready] CONTENT-004 Rewrite 404 page copy in English and Polish
   - Replace generic “void”/space-themed copy with Inurri-appropriate language.
   - Translate all Polish 404 labels.
   - Keep the tone helpful and simple.
