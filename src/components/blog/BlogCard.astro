@@ -57,7 +57,7 @@ const dateString = pubDate.toLocaleDateString(lang, {
       <div class="absolute top-3 right-3 z-10">
         <div class="bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 flex items-center gap-2 shadow-lg">
           <div class="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-sm">Video</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-sm">{t['blog.videoContent']}</span>
         </div>
       </div>
     )}
@@ -66,7 +66,7 @@ const dateString = pubDate.toLocaleDateString(lang, {
       <div class={`absolute top-3 ${isVideo ? 'right-24' : 'right-3'} z-10`}>
         <div class="bg-black/40 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 flex items-center gap-2 shadow-lg">
           <div class="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-sm">Audio</span>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-white drop-shadow-sm">{t['blog.audioContent']}</span>
         </div>
       </div>
     )}
