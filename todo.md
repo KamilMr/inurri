@@ -86,7 +86,7 @@ Main content problems:
     - `npm run build` passes.
     - Remaining blog UI labels are incomplete: English `blog.videoContent` is still title case, and `BlogCard.astro` still renders hardcoded `Video`/`Audio` badges instead of localized labels.
 
-- [pending-review] CONTENT-005a Finish remaining blog badge labels and English casing
+- [done] CONTENT-005a Finish remaining blog badge labels and English casing
   - parent: CONTENT-005
   - Change English `blog.videoContent` to sentence case.
   - Localize the blog card media badges instead of rendering hardcoded `Video` and `Audio` labels.
@@ -94,7 +94,7 @@ Main content problems:
 
 ## Milestone 2: rewrite reusable template pages instead of deleting them
 
-- [pending] CONTENT-006 Rewrite features page content for Inurri services and technology strengths
+- [ready] CONTENT-006 Rewrite features page content for Inurri services and technology strengths
   - Replace Astro boilerplate/product claims with Inurri-relevant capabilities.
   - Keep the reusable features page structure.
   - Provide complete English and Polish copy.
