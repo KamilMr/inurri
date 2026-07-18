@@ -100,13 +100,13 @@ Main content problems:
   - Provide complete English and Polish copy.
   - Audit note: `/en|pl/features` is public by direct URL but hidden from current header/footer.
 
-- [pending-review] CONTENT-007 Rewrite about page content for Inurri
+- [done] CONTENT-007 Rewrite about page content for Inurri
   - Replace Interstellar/NASA placeholder story, team, and timeline copy.
   - Use a personal/freelancer narrative aligned with Kamil Mrówka and Inurri.
   - Keep reusable page sections if they can support a future about page.
   - Audit note: `/en|pl/about` is public by direct URL but hidden from current header/footer; it still renders Interstellar images and copy.
 
-- [pending] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
+- [ready] CONTENT-008 Rewrite changelog content labels or reposition changelog as reusable/internal
   - Replace product-release/newsletter boilerplate with neutral Inurri updates language, or mark the page as reusable/internal.
   - Translate Polish changelog UI labels if the page remains public.
   - Do not delete changelog code or content collections unless explicitly approved later.
