@@ -22,18 +22,20 @@ const href = slug.startsWith('/') ? slug : `/${slug}`;
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
   </div>
 
-  <div class="absolute bottom-0 left-0 w-full p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 bg-black/35 backdrop-blur-md">
-     <div class="flex flex-wrap gap-2 mb-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500 delay-100">
-        {tags.slice(0, 2).map(tag => (
-            <span class="text-xs font-medium px-2 py-1 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20">
-                {tag}
-            </span>
-        ))}
-     </div>
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden bg-black/35 backdrop-blur-md transition-colors duration-500 md:bg-black/30 md:group-hover:bg-black/45">
+     <div class="p-5 sm:p-6">
+        <div class="hidden md:flex max-h-0 flex-wrap gap-2 overflow-hidden opacity-0 transition-all duration-500 ease-out group-hover:max-h-20 group-hover:mb-3 group-hover:opacity-100 group-focus-visible:max-h-20 group-focus-visible:mb-3 group-focus-visible:opacity-100">
+           {tags.slice(0, 2).map(tag => (
+               <span class="text-xs font-medium px-2 py-1 rounded-full bg-white/10 text-white backdrop-blur-sm border border-white/20 whitespace-nowrap">
+                   {tag}
+               </span>
+           ))}
+        </div>
 
-     <h2 class="text-xl sm:text-2xl lg:text-xl xl:text-1xl font-display font-bold text-white mb-1 line-clamp-1 tracking-tight">{title}</h2>
-     <p class="text-white/80 text-sm line-clamp-1 group-hover:text-white transition-colors">
-        {description}
-     </p>
+        <h2 class="text-xl sm:text-2xl lg:text-xl xl:text-1xl font-display font-bold text-white mb-1 line-clamp-1 tracking-tight transition-all duration-500">{title}</h2>
+        <p class="text-white/80 text-sm line-clamp-1 transition-colors duration-500 group-hover:text-white group-focus-visible:text-white">
+           {description}
+        </p>
+     </div>
   </div>
 </a>
