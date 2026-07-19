@@ -159,12 +159,12 @@ Main content problems:
 
 ## Milestone 3: polish existing Inurri copy
 
-- [pending-review] CONTENT-011 Polish English pricing copy for natural service-sales language
+- [done] CONTENT-011 Polish English pricing copy for natural service-sales language
   - Review package descriptions, care plans, FAQ answers, and CTA labels.
   - Improve wording such as landing page descriptions, materials/content wording, and client/admin panel wording.
   - Keep pricing meaning and numbers unchanged.
 
-- [pending] CONTENT-012 Polish Polish pricing copy for punctuation, tone, and consistency
+- [ready] CONTENT-012 Polish Polish pricing copy for punctuation, tone, and consistency
   - Review punctuation and flow, especially longer descriptions.
   - Normalize wording around `email`/`e-mail`, care plan names, and maintenance language.
   - Keep prices and package scope unchanged.
