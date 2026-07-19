@@ -20,7 +20,8 @@ interface PopularLink {
 
 const POPULAR_LINKS: PopularLink[] = [
   { label: "Getting Started", href: "/docs/getting-started/", icon: Book, localize: false },
-  { label: "Features", href: "/features/", icon: Zap },
+  // Features is kept in the codebase but hidden from public promotion/search indexing.
+  // { label: "Features", href: "/features/", icon: Zap },
   { label: "Design System", href: "/design/", icon: LayoutGrid },
   { label: "Blog", href: "/blog/", icon: FileText },
 ];

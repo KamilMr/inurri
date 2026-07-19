@@ -5,7 +5,9 @@ import { siteConfig } from '../site.config';
 
 export async function GET(context) {
 	const blog = await getCollection('blog');
-	const changelog = await getCollection('changelog');
+	// Changelog/update entries are intentionally kept out of the public RSS feed
+	// so those reusable pages are not promoted to search engines.
+	// const changelog = await getCollection('changelog');
 
 	const items = [
 		...blog.map((post) => ({
@@ -14,12 +16,12 @@ export async function GET(context) {
 			description: post.data.description,
 			link: `/blog/${post.slug}/`,
 		})),
-		...changelog.map((entry) => ({
-			title: `${entry.data.version} - ${entry.data.title}`,
-			pubDate: entry.data.pubDate,
-			description: entry.data.description,
-			link: `/changelog#${entry.data.version.replace(/\./g, '-')}`,
-		})),
+		// ...changelog.map((entry) => ({
+		// 	title: `${entry.data.version} - ${entry.data.title}`,
+		// 	pubDate: entry.data.pubDate,
+		// 	description: entry.data.description,
+		// 	link: `/changelog#${entry.data.version.replace(/\./g, '-')}`,
+		// })),
 	].sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf());
 
 	return rss({

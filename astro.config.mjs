@@ -84,7 +84,18 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/demo/'),
+      filter: (page) => {
+        const pathname = new URL(page).pathname.replace(/\/$/, '');
+        const hiddenPaths = ['/features', '/about', '/changelog'];
+        const isHiddenPublicPath = hiddenPaths.some((path) => (
+          pathname === `/en${path}` ||
+          pathname === `/pl${path}` ||
+          pathname.startsWith(`/en${path}/`) ||
+          pathname.startsWith(`/pl${path}/`)
+        ));
+
+        return !pathname.includes('/demo/') && !isHiddenPublicPath;
+      },
     }),
     react(), 
     mdx(),

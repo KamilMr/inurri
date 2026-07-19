@@ -38,6 +38,8 @@ const t = useTranslations(lang);
 <Layout 
     title={`${entry.data.title} - ${t['changelog.detail.meta']}`}
     description={entry.data.description}
+    noindex={true}
+    nofollow={true}
 >
     <PageHeader 
         title={`${t['changelog.detail.release']}: <span class="text-primary">${entry.data.title}</span>`}
