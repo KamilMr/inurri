@@ -197,7 +197,7 @@ Main content problems:
   - Check empty values and placeholder consistency.
   - Keep this as a helper for future content work.
 
-- [pending-review] CONTENT-018 Review unused locale keys after public content is cleaned
+- [done] CONTENT-018 Review unused locale keys after public content is cleaned
   - Identify keys that are unused by current pages/components.
   - Do not delete reusable keys automatically.
   - Propose a later cleanup only for keys confirmed obsolete and not useful for future reusable sections.
@@ -208,7 +208,7 @@ Main content problems:
     - Likely reusable/unresolved groups to keep for now: legacy/nav and docs menu keys (`nav.all.projects*`, `nav.case.studies*`, `nav.docs*`, `nav.introduction*`, `nav.theming*`, `nav.components*`, `nav.design*`, `nav.product*`, `nav.resources*`, `nav.company*`, `nav.features*`, `nav.about*`, `nav.demos`, `nav.home.*`), comparison table labels/rows/categories, search/dev notification keys, changelog sidebar helper keys, `footer.description`, `footer.license`, `pricing.cta.start`, `blog.readArticle`, `portfolio.backToWork`, `opensource.badge`, and generic `faq.title` / `faq.subtitle`.
     - Confirmed cleanup candidates that look obsolete after current content changes: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys including old storage/SLA values.
 
-- [pending] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
+- [ready] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
   - Review `/docs`, `/docs/*`, `/demo/home-*`, `/design`, `/terms`, `/privacy`, and `/license` for public boilerplate visibility.
   - Decide whether to rewrite, hide, noindex, or keep them as reusable/internal reference pages.
   - Do not delete reusable docs, demo, or legal page code without explicit approval.
