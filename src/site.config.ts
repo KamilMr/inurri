@@ -72,7 +72,7 @@ export const NAV_LINKS = [
     href: '/about',
     label: 'Company',
     children: [
-      { href: '/about', label: 'Who is behind Inurri?', labelKey: 'nav.who.behind.inurri', description: 'Story and way of working', descKey: 'nav.about.desc', icon: 'Building2' },
+      { href: '/about', label: 'About', description: 'Story and way of working', icon: 'Building2' },
       { href: '/contact', label: 'Contact', description: 'Get in touch with me', icon: 'Mail' },
     ],
   },
