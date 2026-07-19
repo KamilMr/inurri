@@ -208,10 +208,15 @@ Main content problems:
     - Likely reusable/unresolved groups to keep for now: legacy/nav and docs menu keys (`nav.all.projects*`, `nav.case.studies*`, `nav.docs*`, `nav.introduction*`, `nav.theming*`, `nav.components*`, `nav.design*`, `nav.product*`, `nav.resources*`, `nav.company*`, `nav.features*`, `nav.about*`, `nav.demos`, `nav.home.*`), comparison table labels/rows/categories, search/dev notification keys, changelog sidebar helper keys, `footer.description`, `footer.license`, `pricing.cta.start`, `blog.readArticle`, `portfolio.backToWork`, `opensource.badge`, and generic `faq.title` / `faq.subtitle`.
     - Confirmed cleanup candidates that look obsolete after current content changes: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys including old storage/SLA values.
 
-- [ready] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
+- [pending-review] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
   - Review `/docs`, `/docs/*`, `/demo/home-*`, `/design`, `/terms`, `/privacy`, and `/license` for public boilerplate visibility.
   - Decide whether to rewrite, hide, noindex, or keep them as reusable/internal reference pages.
   - Do not delete reusable docs, demo, or legal page code without explicit approval.
+  - Audit notes:
+    - `/privacy` already redirects to the localized Inurri privacy page.
+    - `/terms` now uses Inurri service-oriented terms instead of Cooper boilerplate.
+    - `/license`, `/docs/*`, demo home variants, and localized `/design` are kept as reusable/internal reference pages with noindex/nofollow where rendered.
+    - `/docs/*` no longer renders public Cooper/Astro documentation body copy; it shows an internal-reference notice while keeping the docs collection and layout reusable.
 
 - [pending] CONTENT-020 Remove obsolete locale keys after review approval
   - Remove only locale keys confirmed obsolete by CONTENT-018: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys.
