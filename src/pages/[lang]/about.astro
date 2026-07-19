@@ -1,24 +1,25 @@
 ---
 export const prerender = true;
 import Layout from '~/layouts/Layout.astro';
-import ContentSection from '~/components/sections/ContentSection.astro';
-import FeaturesList from '~/components/sections/FeaturesList.astro';
-import TeamSection from '~/components/sections/TeamSection.astro';
-import FeatureItem from '~/components/ui/FeatureItem.astro';
-import TeamMember from '~/components/ui/TeamMember.astro';
+// import ContentSection from '~/components/sections/ContentSection.astro';
+// import FeaturesList from '~/components/sections/FeaturesList.astro';
+// import TeamSection from '~/components/sections/TeamSection.astro';
+// import FeatureItem from '~/components/ui/FeatureItem.astro';
+// import TeamMember from '~/components/ui/TeamMember.astro';
 import PageHeader from '~/components/layout/PageHeader.astro';
-import { Zap, Shield, Smartphone, Globe, Code, Layers } from 'lucide-react';
+// import { Zap, Shield, Smartphone, Globe, Code, Layers } from 'lucide-react';
 import { languages } from '~/i18n/ui';
 import { useTranslations } from '~/i18n/utils';
 
-import discoveryImage from '~/assets/blog/search.webp';
-import designImage from '~/assets/blog/art.webp';
-import developmentImage from '~/assets/blog/blocks.webp';
-import careImage from '~/assets/blog/shield.webp';
-import storyImage from '~/assets/blog/startup.webp';
+// Images are kept in the codebase for later reuse, but not imported now so they are not accessed.
+// import discoveryImage from '~/assets/blog/search.webp';
+// import designImage from '~/assets/blog/art.webp';
+// import developmentImage from '~/assets/blog/blocks.webp';
+// import careImage from '~/assets/blog/shield.webp';
+// import storyImage from '~/assets/blog/startup.webp';
 
-import Timeline from '~/components/sections/Timeline.astro';
-import Section from '~/components/layout/Section.astro';
+// import Timeline from '~/components/sections/Timeline.astro';
+// import Section from '~/components/layout/Section.astro';
 import Container from '~/components/ui/Container.astro';
 import Heading from '~/components/ui/Heading.astro';
 import Text from '~/components/ui/Text.astro';
@@ -30,13 +31,16 @@ export async function getStaticPaths() {
 const { lang } = Astro.params;
 const t = useTranslations(lang);
 
+/*
 const timelineItems = [
     { date: t['about.timeline.1.date'], title: t['about.timeline.1.title'], description: t['about.timeline.1.desc'] },
     { date: t['about.timeline.2.date'], title: t['about.timeline.2.title'], description: t['about.timeline.2.desc'] },
     { date: t['about.timeline.3.date'], title: t['about.timeline.3.title'], description: t['about.timeline.3.desc'] },
     { date: t['about.timeline.4.date'], title: t['about.timeline.4.title'], description: t['about.timeline.4.desc'] },
 ];
+*/
 
+/*
 const aboutBenefits = [
     { title: t['about.feat.fast'], description: t['about.feat.fast.desc'], icon: Zap },
     { title: t['about.feat.secure'], description: t['about.feat.secure.desc'], icon: Shield },
@@ -68,12 +72,31 @@ const teamMembers = [
         imageSource: careImage
     }
 ];
+*/
 
 ---
 
-<Layout title={t['about.meta.title']} description={t['about.meta.desc']} noindex={true} nofollow={true}>
+<Layout title={t['about.meta.title']} description={t['about.meta.desc']}>
 <PageHeader title={t['about.title']} description={t['about.mission']} />
 
+  <Container as="section" class="py-24">
+    <div class="max-w-3xl mx-auto">
+      <Heading level={2} class="mb-6">{t['about.story.title']}</Heading>
+      <div class="space-y-4 text-muted-foreground">
+        <Text>{t['about.story.p1']}</Text>
+        <a
+          href="https://kamilmrowka.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex font-medium text-primary hover:text-primary/80 transition-colors"
+        >
+          {t['about.story.link']}
+        </a>
+      </div>
+    </div>
+  </Container>
+
+  {/* Image-backed story section is kept for later reuse, but hidden now so the image is not accessed.
   <ContentSection
     title={t['about.story.title']}
     image={storyImage}
@@ -83,12 +106,16 @@ const teamMembers = [
     <Text>{t['about.story.p2']}</Text>
     <Text>{t['about.story.p3']}</Text>
   </ContentSection>
+  */}
 
+  {/* Typical project flow is kept for later reuse, but hidden now.
   <Container class="py-24">
     <Heading level={2} class="text-center mb-12">{t['about.timeline.title']}</Heading>
     <Timeline items={timelineItems} />
   </Container>
+  */}
 
+  {/* Sections after “Typical project flow” are kept for later reuse, but hidden now.
   <Section>
       <Container>
           <div class="mb-24">
@@ -115,4 +142,5 @@ const teamMembers = [
           </div>
       </Container>
   </Section>
+  */}
 </Layout>

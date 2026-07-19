@@ -86,7 +86,7 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const pathname = new URL(page).pathname.replace(/\/$/, '');
-        const hiddenPaths = ['/features', '/about', '/changelog'];
+        const hiddenPaths = ['/features', '/changelog'];
         const isHiddenPublicPath = hiddenPaths.some((path) => (
           pathname === `/en${path}` ||
           pathname === `/pl${path}` ||
