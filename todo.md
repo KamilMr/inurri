@@ -169,12 +169,12 @@ Main content problems:
   - Normalize wording around `email`/`e-mail`, care plan names, and maintenance language.
   - Keep prices and package scope unchanged.
 
-- [pending-review] CONTENT-013 Review contact and contact-box microcopy in both languages
+- [done] CONTENT-013 Review contact and contact-box microcopy in both languages
   - Make the form labels, placeholders, validation errors, and success states consistent.
   - Keep the personal tone.
   - Preserve existing form behavior expectations.
 
-- [pending] CONTENT-014 Review benefits and tech stack copy for clarity and repetition
+- [ready] CONTENT-014 Review benefits and tech stack copy for clarity and repetition
   - Reduce repeated wording around speed, SEO, maintenance, and future growth.
   - Keep the practical client-facing tone.
   - Keep all reusable tech stack categories and item keys.
