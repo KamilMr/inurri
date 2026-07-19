@@ -169,7 +169,7 @@ Main content problems:
   - Normalize wording around `email`/`e-mail`, care plan names, and maintenance language.
   - Keep prices and package scope unchanged.
 
-- [ready] CONTENT-013 Review contact and contact-box microcopy in both languages
+- [pending-review] CONTENT-013 Review contact and contact-box microcopy in both languages
   - Make the form labels, placeholders, validation errors, and success states consistent.
   - Keep the personal tone.
   - Preserve existing form behavior expectations.
