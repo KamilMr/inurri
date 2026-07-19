@@ -120,12 +120,21 @@ Main content problems:
   - parent: CONTENT-008
   - Replace the public English changelog entry titles, descriptions, and body copy with neutral reusable/Inurri update notes, or clearly isolate the changelog entries as internal/reusable without deleting changelog code or content collections.
 
-- [pending-review] CONTENT-008b Reposition changelog as public Updates page
+- [review] CONTENT-008b Reposition changelog as public Updates page
   - parent: CONTENT-008
   - Use the changelog feature as an Inurri `Updates` / `Aktualności` page rather than a software-product changelog.
   - Content can include finished projects, new services, website improvements, new blog posts or guides, pricing/package changes, availability updates, and technology/process improvements.
   - Avoid public navigation label `Changelog`; prefer English `Updates` and Polish `Aktualności` or `Zmiany`.
   - Keep the reusable changelog code and content collection intact.
+  - Reviewer notes:
+    - `npm run build` passes.
+    - `npm run test` passes.
+    - The detail route still prerenders public `/ar|de|fr/changelog/...` pages from unchanged Cooper/Astro software-product changelog entries, so the public changelog feature is not fully repositioned as Inurri Updates/Aktualności.
+
+- [ready] CONTENT-008c Isolate or neutralize non-English/Polish changelog detail routes
+  - parent: CONTENT-008b
+  - Stop public `/ar|de|fr/changelog/...` pages from exposing unchanged Cooper/Astro software-product changelog content, either by limiting generated changelog detail routes to supported locales or by rewriting/isolating those entries.
+  - Keep the English and Polish Updates/Aktualności pages and reusable changelog collection intact.
 
 - [review] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
   - Replace generic plan comparison and interactive showcase copy with Inurri-relevant wording, or keep it neutral for future reuse.
