@@ -187,7 +187,7 @@ Main content problems:
   - If not visible, document that they are intentionally empty.
   - Audit note: homepage filters out testimonials with empty text, author, or role, so the current empty testimonial locale values do not render.
 
-- [ready] CONTENT-016 Normalize brand voice across both locale files
+- [pending-review] CONTENT-016 Normalize brand voice across both locale files
   - Remove accidental `we/our/product/subscription` voice where Inurri should speak as a personal service provider.
   - Keep `we` only where it is intentionally chosen.
   - Review both English and Polish after changes for consistency.
