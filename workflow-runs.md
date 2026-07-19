@@ -67,3 +67,4 @@
 | 2026-07-19 09:14:53 CEST | review | CONTENT-016 | 0.49M | 2m | done | a2740bb |
 | 2026-07-19 09:15:33 CEST | plan | - | 0.01M | 40s | - | - |
 | 2026-07-19 09:17:43 CEST | implement | CONTENT-017 | 0.57M | 2m | pending-review | efb67f5 |
+| 2026-07-19 09:19:36 CEST | review | CONTENT-017 | 0.31M | 2m | done | 29ce2c1 |
