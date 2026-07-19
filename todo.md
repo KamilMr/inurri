@@ -137,7 +137,7 @@ Main content problems:
     - `npm run test` passes.
     - The comparison table docs/example at `src/content/docs/sections/comparison-table.mdx` still renders public SaaS/product-plan language such as `plans or products`, `Free`, `Pro`, `$29/mo`, `$99/mo`, `API Calls`, and `Phone Support`.
 
-- [ready] CONTENT-009a Neutralize public comparison table docs/example copy
+- [pending-review] CONTENT-009a Neutralize public comparison table docs/example copy
   - parent: CONTENT-009
   - Rewrite the comparison table documentation/example copy to neutral reusable or Inurri-relevant wording, avoiding SaaS/product-plan/subscription language.
   - Keep the comparison component and docs page reusable.
