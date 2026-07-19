@@ -192,12 +192,12 @@ Main content problems:
   - Keep `we` only where it is intentionally chosen.
   - Review both English and Polish after changes for consistency.
 
-- [pending-review] CONTENT-017 Add a lightweight locale QA checklist or script
+- [done] CONTENT-017 Add a lightweight locale QA checklist or script
   - Check matching keys between `en.properties` and `pl.properties`.
   - Check empty values and placeholder consistency.
   - Keep this as a helper for future content work.
 
-- [pending] CONTENT-018 Review unused locale keys after public content is cleaned
+- [ready] CONTENT-018 Review unused locale keys after public content is cleaned
   - Identify keys that are unused by current pages/components.
   - Do not delete reusable keys automatically.
   - Propose a later cleanup only for keys confirmed obsolete and not useful for future reusable sections.
