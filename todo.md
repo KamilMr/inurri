@@ -192,7 +192,7 @@ Main content problems:
   - Keep `we` only where it is intentionally chosen.
   - Review both English and Polish after changes for consistency.
 
-- [ready] CONTENT-017 Add a lightweight locale QA checklist or script
+- [pending-review] CONTENT-017 Add a lightweight locale QA checklist or script
   - Check matching keys between `en.properties` and `pl.properties`.
   - Check empty values and placeholder consistency.
   - Keep this as a helper for future content work.
