@@ -181,7 +181,7 @@ Main content problems:
 
 ## Milestone 4: content hygiene and future reuse
 
-- [ready] CONTENT-015 Decide what to do with empty testimonial fields
+- [pending-review] CONTENT-015 Decide what to do with empty testimonial fields
   - Check whether testimonial fields render anywhere.
   - If visible, add real placeholder-safe content or hide empty testimonials without deleting the reusable testimonial component.
   - If not visible, document that they are intentionally empty.
