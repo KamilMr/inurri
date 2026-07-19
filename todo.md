@@ -222,12 +222,12 @@ Main content problems:
     - `npm run test` passes.
     - The visible replacement pages are noindexed and mostly neutral, but public `/docs/*` HTML still embeds the full docs collection entries in the hydrated `MobileDocsMenu` props, including raw Cooper/Astro/template body copy from files such as `src/content/docs/getting-started.md`, `src/content/docs/theming/search.mdx`, and `src/content/docs/sections/pricing-table.mdx`.
 
-- [pending-review] CONTENT-019a Stop public docs pages from embedding raw docs body copy
+- [done] CONTENT-019a Stop public docs pages from embedding raw docs body copy
   - parent: CONTENT-019
   - Ensure `/docs/*` rendered HTML and client hydration payloads do not expose unchanged Cooper/Astro/template documentation body copy.
   - Keep the docs collection, docs routes, and reusable docs layout intact or internal/noindexed as intended.
 
-- [pending] CONTENT-020 Remove obsolete locale keys after review approval
+- [ready] CONTENT-020 Remove obsolete locale keys after review approval
   - Remove only locale keys confirmed obsolete by CONTENT-018: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys.
   - Preserve English/Polish key parity.
   - Do not remove reusable navigation, docs/demo, comparison label/row/category, search/dev, changelog sidebar helper, footer, blog, portfolio, open-source notification, or FAQ keys without a separate review decision.
