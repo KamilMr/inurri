@@ -54,7 +54,7 @@ const arrow = rtl ? '←' : '→';
               ]}
             >
               <div class="flex items-center gap-2">
-                <span class={isActive ? "font-bold" : ""}>v{entry.data.version}</span>
+                <span class={isActive ? "font-bold" : ""}>{entry.data.title}</span>
               </div>
               {isActive && <div class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_5px_var(--color-primary)]"></div>}
             </a>

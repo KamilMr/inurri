@@ -32,11 +32,11 @@ const t = useTranslations(lang);
 ---
 
 <Layout 
-    title={`v${entry.data.version}: ${entry.data.title} - ${t['changelog.detail.meta']}`}
+    title={`${entry.data.title} - ${t['changelog.detail.meta']}`}
     description={entry.data.description}
 >
     <PageHeader 
-        title={`${t['changelog.detail.release']} <span class="text-primary">v${entry.data.version}</span>`}
+        title={`${t['changelog.detail.release']}: <span class="text-primary">${entry.data.title}</span>`}
         description={entry.data.description}
     />
 

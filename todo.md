@@ -120,7 +120,7 @@ Main content problems:
   - parent: CONTENT-008
   - Replace the public English changelog entry titles, descriptions, and body copy with neutral reusable/Inurri update notes, or clearly isolate the changelog entries as internal/reusable without deleting changelog code or content collections.
 
-- [ready] CONTENT-008b Reposition changelog as public Updates page
+- [pending-review] CONTENT-008b Reposition changelog as public Updates page
   - parent: CONTENT-008
   - Use the changelog feature as an Inurri `Updates` / `Aktualności` page rather than a software-product changelog.
   - Content can include finished projects, new services, website improvements, new blog posts or guides, pricing/package changes, availability updates, and technology/process improvements.
