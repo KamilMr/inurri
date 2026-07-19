@@ -23,7 +23,7 @@ const steps = [
     {/* Background blobs */}
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -z-10"></div>
 
-    <div class="w-full max-w-md mx-auto" id="checkout-container">
+    <div class="w-full max-w-md mx-auto" id="checkout-container" data-error-required={t['checkout.error.required']}>
       {/* Progress Steps */}
       <div class="flex justify-between mb-12 relative">
           <div class="absolute top-1/2 left-0 w-full h-0.5 bg-black/10 dark:bg-white/10 -z-10 -translate-y-1/2"></div>
@@ -228,7 +228,8 @@ const steps = [
         const emailInput = document.getElementById('input-email') as HTMLInputElement;
 
         if (!nameInput.value || !emailInput.value) {
-            alert('Please fill in all fields'); // Simple validation
+            const checkoutContainer = document.getElementById('checkout-container');
+            alert(checkoutContainer?.dataset.errorRequired || 'Please add your name and email address');
             return;
         }
         currentStep = 2;

@@ -151,7 +151,7 @@ Main content problems:
   - Rewrite the comparison table documentation/example copy to neutral reusable or Inurri-relevant wording, avoiding SaaS/product-plan/subscription language.
   - Keep the comparison component and docs page reusable.
 
-- [ready] CONTENT-010 Rewrite checkout copy or clearly isolate checkout as unused reusable flow
+- [pending-review] CONTENT-010 Rewrite checkout copy or clearly isolate checkout as unused reusable flow
   - Replace subscription/payment boilerplate if checkout is publicly reachable.
   - If checkout is not part of the current business model, keep code but make content neutral or hide/unlink the route in a separate approved task.
   - Preserve `{plan}` placeholders if still used.
