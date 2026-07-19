@@ -66,9 +66,24 @@ export const siteConfig = {
 
 export const NAV_LINKS = [
   { href: '/', label: 'Home' },
+  {
+    href: '/features',
+    label: 'Product',
+    children: [
+      { href: '/features', label: 'Features', description: 'Services and capabilities', icon: 'Zap' },
+      { href: '/pricing', label: 'Pricing', description: 'Flexible pricing starting points', icon: 'CreditCard' },
+    ],
+  },
   { href: '/portfolio', label: 'Work' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/changelog', label: 'Changelog' },
+  {
+    href: '/about',
+    label: 'Company',
+    children: [
+      { href: '/about', label: 'About', description: 'Story and way of working', icon: 'Building2' },
+      { href: '/contact', label: 'Contact', description: 'Get in touch with me', icon: 'Mail' },
+    ],
+  },
 ];
 
 export const ACTION_LINKS = {

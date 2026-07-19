@@ -78,7 +78,7 @@ const primaryHref = `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : 
       <!-- <span class="md:hidden lg:inline">{t['brand.name'] || siteConfig.name}</span> -->
     </a>
     <div class="flex-1 flex justify-center mx-4 lg:mx-8">
-      <DesktopNav client:only="react" links={links} currentPath={Astro.url.pathname} />
+      <DesktopNav client:load links={links} currentPath={Astro.url.pathname} />
     </div>
 
     {/* Mobile/Flyout Menu */}
@@ -99,7 +99,7 @@ const primaryHref = `/${lang}${ACTION_LINKS.primary.href.startsWith('/') ? '' : 
 
       <div class="md:hidden">
         <MobileMenu
-          client:only="react"
+          client:load
           links={links}
           currentPath={Astro.url.pathname}
           ctaHref={primaryHref}
