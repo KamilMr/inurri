@@ -197,13 +197,24 @@ Main content problems:
   - Check empty values and placeholder consistency.
   - Keep this as a helper for future content work.
 
-- [ready] CONTENT-018 Review unused locale keys after public content is cleaned
+- [pending-review] CONTENT-018 Review unused locale keys after public content is cleaned
   - Identify keys that are unused by current pages/components.
   - Do not delete reusable keys automatically.
   - Propose a later cleanup only for keys confirmed obsolete and not useful for future reusable sections.
+  - Audit notes:
+    - `AGENTS.md` was not present in the repository root; only `todo.md` and required locale files were available to read.
+    - Exact-key scan found 129 English/Polish keys without direct literal references outside locale files; current dynamic usage accounts for `nav.home`, `nav.work`, `nav.pricing`, `nav.contact`, footer link keys from `site.config.ts`, `techstack.category.*`, `techstack.item.*.desc`, and `changelog.type.*`.
+    - After accounting for those dynamic keys, 97 keys remain unmatched by current pages/components.
+    - Likely reusable/unresolved groups to keep for now: legacy/nav and docs menu keys (`nav.all.projects*`, `nav.case.studies*`, `nav.docs*`, `nav.introduction*`, `nav.theming*`, `nav.components*`, `nav.design*`, `nav.product*`, `nav.resources*`, `nav.company*`, `nav.features*`, `nav.about*`, `nav.demos`, `nav.home.*`), comparison table labels/rows/categories, search/dev notification keys, changelog sidebar helper keys, `footer.description`, `footer.license`, `pricing.cta.start`, `blog.readArticle`, `portfolio.backToWork`, `opensource.badge`, and generic `faq.title` / `faq.subtitle`.
+    - Confirmed cleanup candidates that look obsolete after current content changes: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys including old storage/SLA values.
 
 - [pending] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
   - Review `/docs`, `/docs/*`, `/demo/home-*`, `/design`, `/terms`, `/privacy`, and `/license` for public boilerplate visibility.
   - Decide whether to rewrite, hide, noindex, or keep them as reusable/internal reference pages.
   - Do not delete reusable docs, demo, or legal page code without explicit approval.
+
+- [pending] CONTENT-020 Remove obsolete locale keys after review approval
+  - Remove only locale keys confirmed obsolete by CONTENT-018: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys.
+  - Preserve English/Polish key parity.
+  - Do not remove reusable navigation, docs/demo, comparison label/row/category, search/dev, changelog sidebar helper, footer, blog, portfolio, open-source notification, or FAQ keys without a separate review decision.
 
