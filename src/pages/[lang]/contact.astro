@@ -2,12 +2,13 @@
 export const prerender = true;
 import Layout from '~/layouts/Layout.astro';
 import ContactForm from '~/components/islands/ContactForm';
-import { Clock, ListChecks, MessageSquare } from 'lucide-react';
+import { Clock, ListChecks, Mail, MessageSquare } from 'lucide-react';
 import PageHeader from '~/components/layout/PageHeader.astro';
 import Container from '~/components/ui/Container.astro';
 import Grid from '~/components/ui/Grid.astro';
 import { languages } from '~/i18n/ui';
 import { useTranslations } from '~/i18n/utils';
+import { siteConfig } from '~/site.config';
 
 export async function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -15,6 +16,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const t = useTranslations(lang);
+const contactEmail = siteConfig.contact.email.support;
 
 const formLabels = {
   name: t['contact.form.name'],
@@ -76,6 +78,19 @@ const serviceOptions = [
               </div>
               
               <div class="space-y-5">
+                  <div class="flex items-start gap-4">
+                      <div class="p-3 rounded-lg bg-primary/10 text-primary">
+                          <Mail className="w-6 h-6" />
+                      </div>
+                      <div>
+                          <h3 class="font-bold mb-1">{t['contact.info.email.title']}</h3>
+                          <p class="text-muted-foreground mb-1">{t['contact.info.email.desc']}</p>
+                          <a href={`mailto:${contactEmail}`} class="font-medium text-primary hover:text-primary/80 transition-colors">
+                              {contactEmail}
+                          </a>
+                      </div>
+                  </div>
+
                   <div class="flex items-start gap-4">
                       <div class="p-3 rounded-lg bg-primary/10 text-primary">
                           <MessageSquare className="w-6 h-6" />
