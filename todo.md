@@ -131,7 +131,7 @@ Main content problems:
     - `npm run test` passes.
     - The detail route still prerenders public `/ar|de|fr/changelog/...` pages from unchanged Cooper/Astro software-product changelog entries, so the public changelog feature is not fully repositioned as Inurri Updates/Aktualności.
 
-- [ready] CONTENT-008c Isolate or neutralize non-English/Polish changelog detail routes
+- [pending-review] CONTENT-008c Isolate or neutralize non-English/Polish changelog detail routes
   - parent: CONTENT-008b
   - Stop public `/ar|de|fr/changelog/...` pages from exposing unchanged Cooper/Astro software-product changelog content, either by limiting generated changelog detail routes to supported locales or by rewriting/isolating those entries.
   - Keep the English and Polish Updates/Aktualności pages and reusable changelog collection intact.

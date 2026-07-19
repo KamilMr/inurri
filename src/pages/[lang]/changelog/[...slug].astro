@@ -6,11 +6,15 @@ import ChangelogSidebar from '~/components/changelog/ChangelogSidebar.astro';
 import Container from '~/components/ui/Container.astro';
 import Section from '~/components/layout/Section.astro';
 import PageHeader from '~/components/layout/PageHeader.astro';
+import { languages } from '~/i18n/ui';
 import { useTranslations } from '~/i18n/utils';
 
 export async function getStaticPaths() {
+  const supportedLocales = new Set(Object.keys(languages));
   const entries = await getCollection('changelog');
-  return entries.map((entry) => {
+  return entries
+    .filter((entry) => supportedLocales.has(entry.id.split('/')[0]))
+    .map((entry) => {
     const [lang, ...slugParts] = entry.id.split('/');
     const slug = slugParts.join('/').replace(/\.[^/.]+$/, "");
     return {
