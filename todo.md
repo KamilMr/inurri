@@ -174,7 +174,7 @@ Main content problems:
   - Keep the personal tone.
   - Preserve existing form behavior expectations.
 
-- [ready] CONTENT-014 Review benefits and tech stack copy for clarity and repetition
+- [pending-review] CONTENT-014 Review benefits and tech stack copy for clarity and repetition
   - Reduce repeated wording around speed, SEO, maintenance, and future growth.
   - Keep the practical client-facing tone.
   - Keep all reusable tech stack categories and item keys.
