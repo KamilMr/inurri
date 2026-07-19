@@ -222,7 +222,7 @@ Main content problems:
     - `npm run test` passes.
     - The visible replacement pages are noindexed and mostly neutral, but public `/docs/*` HTML still embeds the full docs collection entries in the hydrated `MobileDocsMenu` props, including raw Cooper/Astro/template body copy from files such as `src/content/docs/getting-started.md`, `src/content/docs/theming/search.mdx`, and `src/content/docs/sections/pricing-table.mdx`.
 
-- [ready] CONTENT-019a Stop public docs pages from embedding raw docs body copy
+- [pending-review] CONTENT-019a Stop public docs pages from embedding raw docs body copy
   - parent: CONTENT-019
   - Ensure `/docs/*` rendered HTML and client hydration payloads do not expose unchanged Cooper/Astro/template documentation body copy.
   - Keep the docs collection, docs routes, and reusable docs layout intact or internal/noindexed as intended.

@@ -17,7 +17,14 @@ interface Props {
 
 const { title, description, noindex, nofollow, headings = [] } = Astro.props;
 
-const docs = (await getCollection('docs')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+const docs = (await getCollection('docs'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+  .map((doc) => ({
+    id: doc.id,
+    data: {
+      title: doc.data.title,
+    },
+  }));
 
 // Helper to get clean slug from ID
 const getSlug = (id: string) => id.replace(/\.[^/.]+$/, "");
