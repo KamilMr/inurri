@@ -164,12 +164,12 @@ Main content problems:
   - Improve wording such as landing page descriptions, materials/content wording, and client/admin panel wording.
   - Keep pricing meaning and numbers unchanged.
 
-- [pending-review] CONTENT-012 Polish Polish pricing copy for punctuation, tone, and consistency
+- [done] CONTENT-012 Polish Polish pricing copy for punctuation, tone, and consistency
   - Review punctuation and flow, especially longer descriptions.
   - Normalize wording around `email`/`e-mail`, care plan names, and maintenance language.
   - Keep prices and package scope unchanged.
 
-- [pending] CONTENT-013 Review contact and contact-box microcopy in both languages
+- [ready] CONTENT-013 Review contact and contact-box microcopy in both languages
   - Make the form labels, placeholders, validation errors, and success states consistent.
   - Keep the personal tone.
   - Preserve existing form behavior expectations.
