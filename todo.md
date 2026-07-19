@@ -120,7 +120,7 @@ Main content problems:
   - parent: CONTENT-008
   - Replace the public English changelog entry titles, descriptions, and body copy with neutral reusable/Inurri update notes, or clearly isolate the changelog entries as internal/reusable without deleting changelog code or content collections.
 
-- [pending] CONTENT-008b Reposition changelog as public Updates page
+- [ready] CONTENT-008b Reposition changelog as public Updates page
   - parent: CONTENT-008
   - Use the changelog feature as an Inurri `Updates` / `Aktualności` page rather than a software-product changelog.
   - Content can include finished projects, new services, website improvements, new blog posts or guides, pricing/package changes, availability updates, and technology/process improvements.
@@ -137,7 +137,7 @@ Main content problems:
     - `npm run test` passes.
     - The comparison table docs/example at `src/content/docs/sections/comparison-table.mdx` still renders public SaaS/product-plan language such as `plans or products`, `Free`, `Pro`, `$29/mo`, `$99/mo`, `API Calls`, and `Phone Support`.
 
-- [pending-review] CONTENT-009a Neutralize public comparison table docs/example copy
+- [done] CONTENT-009a Neutralize public comparison table docs/example copy
   - parent: CONTENT-009
   - Rewrite the comparison table documentation/example copy to neutral reusable or Inurri-relevant wording, avoiding SaaS/product-plan/subscription language.
   - Keep the comparison component and docs page reusable.
