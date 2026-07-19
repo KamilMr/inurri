@@ -208,7 +208,7 @@ Main content problems:
     - Likely reusable/unresolved groups to keep for now: legacy/nav and docs menu keys (`nav.all.projects*`, `nav.case.studies*`, `nav.docs*`, `nav.introduction*`, `nav.theming*`, `nav.components*`, `nav.design*`, `nav.product*`, `nav.resources*`, `nav.company*`, `nav.features*`, `nav.about*`, `nav.demos`, `nav.home.*`), comparison table labels/rows/categories, search/dev notification keys, changelog sidebar helper keys, `footer.description`, `footer.license`, `pricing.cta.start`, `blog.readArticle`, `portfolio.backToWork`, `opensource.badge`, and generic `faq.title` / `faq.subtitle`.
     - Confirmed cleanup candidates that look obsolete after current content changes: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys including old storage/SLA values.
 
-- [pending-review] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
+- [review] CONTENT-019 Audit and clean public unlocalized template/legal/demo pages
   - Review `/docs`, `/docs/*`, `/demo/home-*`, `/design`, `/terms`, `/privacy`, and `/license` for public boilerplate visibility.
   - Decide whether to rewrite, hide, noindex, or keep them as reusable/internal reference pages.
   - Do not delete reusable docs, demo, or legal page code without explicit approval.
@@ -217,6 +217,15 @@ Main content problems:
     - `/terms` now uses Inurri service-oriented terms instead of Cooper boilerplate.
     - `/license`, `/docs/*`, demo home variants, and localized `/design` are kept as reusable/internal reference pages with noindex/nofollow where rendered.
     - `/docs/*` no longer renders public Cooper/Astro documentation body copy; it shows an internal-reference notice while keeping the docs collection and layout reusable.
+  - Reviewer notes:
+    - `npm run build` passes.
+    - `npm run test` passes.
+    - The visible replacement pages are noindexed and mostly neutral, but public `/docs/*` HTML still embeds the full docs collection entries in the hydrated `MobileDocsMenu` props, including raw Cooper/Astro/template body copy from files such as `src/content/docs/getting-started.md`, `src/content/docs/theming/search.mdx`, and `src/content/docs/sections/pricing-table.mdx`.
+
+- [ready] CONTENT-019a Stop public docs pages from embedding raw docs body copy
+  - parent: CONTENT-019
+  - Ensure `/docs/*` rendered HTML and client hydration payloads do not expose unchanged Cooper/Astro/template documentation body copy.
+  - Keep the docs collection, docs routes, and reusable docs layout intact or internal/noindexed as intended.
 
 - [pending] CONTENT-020 Remove obsolete locale keys after review approval
   - Remove only locale keys confirmed obsolete by CONTENT-018: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys.
