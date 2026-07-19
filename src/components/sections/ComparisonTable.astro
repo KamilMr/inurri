@@ -31,32 +31,32 @@ interface Props {
 }
 
 const { 
-  title = "Compare Plans",
-  subtitle = "Find the perfect plan for your needs.",
+  title = "Compare project scopes",
+  subtitle = "A simple overview of how different website and app scopes can differ.",
   features = [
-      { category: "Core Features", items: [
-          { name: "Projects", starter: "3", pro: "Unlimited", enterprise: "Unlimited" },
-          { name: "Users", starter: "1", pro: "5", enterprise: "Unlimited" },
-          { name: "Storage", starter: "1GB", pro: "10GB", enterprise: "Unlimited" },
+      { category: "Project foundation", items: [
+          { name: "Pages or modules", starter: "1", pro: "5", enterprise: "As needed" },
+          { name: "Content editors", starter: "1", pro: "5", enterprise: "As needed" },
+          { name: "Content and media", starter: "Standard", pro: "Priority", enterprise: "Dedicated" },
       ]},
-      { category: "Analytics", items: [
-          { name: "Basic Analytics", starter: true, pro: true, enterprise: true },
-          { name: "Advanced Reports", starter: false, pro: true, enterprise: true },
-          { name: "Custom Dashboards", starter: false, pro: true, enterprise: true },
-          { name: "Audit Logs", starter: false, pro: false, enterprise: true },
+      { category: "Growth and measurement", items: [
+          { name: "Basic analytics", starter: true, pro: true, enterprise: true },
+          { name: "Custom reporting", starter: false, pro: true, enterprise: true },
+          { name: "Admin or client panel", starter: false, pro: true, enterprise: true },
+          { name: "Activity history", starter: false, pro: false, enterprise: true },
       ]},
-      { category: "Support & Security", items: [
-          { name: "Email Support", starter: "Standard", pro: "Priority", enterprise: "Dedicated" },
-          { name: "SSO / SAML", starter: false, pro: false, enterprise: true },
-          { name: "SLA", starter: false, pro: false, enterprise: "99.99%" },
+      { category: "Care and security", items: [
+          { name: "Email contact", starter: "Standard", pro: "Priority", enterprise: "Dedicated" },
+          { name: "External login", starter: false, pro: false, enterprise: true },
+          { name: "Availability agreement", starter: false, pro: false, enterprise: "Custom" },
       ]}
   ], 
   plans = [
       { name: "Starter", key: "starter" },
-      { name: "Pro", key: "pro", popular: true },
-      { name: "Enterprise", key: "enterprise" }
+      { name: "Company", key: "pro", popular: true },
+      { name: "Custom", key: "enterprise" }
   ],
-  labels = { features: "Features", popular: "Most Popular" }
+  labels = { features: "Scope area", popular: "Common choice" }
 } = Astro.props;
 ---
 

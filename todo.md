@@ -120,7 +120,7 @@ Main content problems:
   - parent: CONTENT-008
   - Replace the public English changelog entry titles, descriptions, and body copy with neutral reusable/Inurri update notes, or clearly isolate the changelog entries as internal/reusable without deleting changelog code or content collections.
 
-- [ready] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
+- [pending-review] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
   - Replace generic plan comparison and interactive showcase copy with Inurri-relevant wording, or keep it neutral for future reuse.
   - Translate Polish values that are not intentionally technical or numeric.
   - Do not remove the comparison/showcase components during this task.

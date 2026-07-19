@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "test": "vitest run",
     "build:vercel": "cross-env ADAPTER=vercel astro build",
     "build:netlify": "cross-env ADAPTER=netlify astro build",
     "build:cloudflare": "cross-env ADAPTER=cloudflare astro build",
