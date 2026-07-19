@@ -174,14 +174,14 @@ Main content problems:
   - Keep the personal tone.
   - Preserve existing form behavior expectations.
 
-- [pending-review] CONTENT-014 Review benefits and tech stack copy for clarity and repetition
+- [done] CONTENT-014 Review benefits and tech stack copy for clarity and repetition
   - Reduce repeated wording around speed, SEO, maintenance, and future growth.
   - Keep the practical client-facing tone.
   - Keep all reusable tech stack categories and item keys.
 
 ## Milestone 4: content hygiene and future reuse
 
-- [pending] CONTENT-015 Decide what to do with empty testimonial fields
+- [ready] CONTENT-015 Decide what to do with empty testimonial fields
   - Check whether testimonial fields render anywhere.
   - If visible, add real placeholder-safe content or hide empty testimonials without deleting the reusable testimonial component.
   - If not visible, document that they are intentionally empty.
