@@ -120,11 +120,27 @@ Main content problems:
   - parent: CONTENT-008
   - Replace the public English changelog entry titles, descriptions, and body copy with neutral reusable/Inurri update notes, or clearly isolate the changelog entries as internal/reusable without deleting changelog code or content collections.
 
-- [pending-review] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
+- [pending] CONTENT-008b Reposition changelog as public Updates page
+  - parent: CONTENT-008
+  - Use the changelog feature as an Inurri `Updates` / `Aktualności` page rather than a software-product changelog.
+  - Content can include finished projects, new services, website improvements, new blog posts or guides, pricing/package changes, availability updates, and technology/process improvements.
+  - Avoid public navigation label `Changelog`; prefer English `Updates` and Polish `Aktualności` or `Zmiany`.
+  - Keep the reusable changelog code and content collection intact.
+
+- [review] CONTENT-009 Rewrite showcase and compare copy to avoid SaaS/product-plan language
   - Replace generic plan comparison and interactive showcase copy with Inurri-relevant wording, or keep it neutral for future reuse.
   - Translate Polish values that are not intentionally technical or numeric.
   - Do not remove the comparison/showcase components during this task.
   - Audit note: `/en|pl/showcase` is public by direct URL but hidden from current header/footer.
+  - Reviewer notes:
+    - `npm run build` passes.
+    - `npm run test` passes.
+    - The comparison table docs/example at `src/content/docs/sections/comparison-table.mdx` still renders public SaaS/product-plan language such as `plans or products`, `Free`, `Pro`, `$29/mo`, `$99/mo`, `API Calls`, and `Phone Support`.
+
+- [ready] CONTENT-009a Neutralize public comparison table docs/example copy
+  - parent: CONTENT-009
+  - Rewrite the comparison table documentation/example copy to neutral reusable or Inurri-relevant wording, avoiding SaaS/product-plan/subscription language.
+  - Keep the comparison component and docs page reusable.
 
 - [pending] CONTENT-010 Rewrite checkout copy or clearly isolate checkout as unused reusable flow
   - Replace subscription/payment boilerplate if checkout is publicly reachable.
@@ -181,3 +197,4 @@ Main content problems:
   - Review `/docs`, `/docs/*`, `/demo/home-*`, `/design`, `/terms`, `/privacy`, and `/license` for public boilerplate visibility.
   - Decide whether to rewrite, hide, noindex, or keep them as reusable/internal reference pages.
   - Do not delete reusable docs, demo, or legal page code without explicit approval.
+
