@@ -19,8 +19,8 @@ const t = useTranslations(lang);
 
 const translateNavLinks = (links: any[], lang: string, t: any): any[] => {
   return links.map(link => {
-    const key = `nav.${link.label.toLowerCase().replace(/\s+/g, '.')}`;
-    const descKey = `${key}.desc`;
+    const key = link.labelKey || `nav.${link.label.toLowerCase().replace(/\s+/g, '.')}`;
+    const descKey = link.descKey || `${key}.desc`;
 
     const shouldLocalize = link.localize !== false;
     const href = (!shouldLocalize)

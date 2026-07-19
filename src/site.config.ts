@@ -68,7 +68,14 @@ export const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/portfolio', label: 'Work' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/contact', label: 'Contact' },
+  {
+    href: '/about',
+    label: 'Company',
+    children: [
+      { href: '/about', label: 'Who is behind Inurri?', labelKey: 'nav.who.behind.inurri', description: 'Story and way of working', descKey: 'nav.about.desc', icon: 'Building2' },
+      { href: '/contact', label: 'Contact', description: 'Get in touch with me', icon: 'Mail' },
+    ],
+  },
 
   // Hidden from public navigation and search indexing, but kept here for reuse later.
   // {
@@ -80,14 +87,6 @@ export const NAV_LINKS = [
   //   ],
   // },
   // { href: '/changelog', label: 'Changelog' },
-  // {
-  //   href: '/about',
-  //   label: 'Company',
-  //   children: [
-  //     { href: '/about', label: 'About', description: 'Story and way of working', icon: 'Building2' },
-  //     { href: '/contact', label: 'Contact', description: 'Get in touch with me', icon: 'Mail' },
-  //   ],
-  // },
 ];
 
 export const ACTION_LINKS = {
