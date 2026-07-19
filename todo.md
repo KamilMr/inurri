@@ -181,13 +181,13 @@ Main content problems:
 
 ## Milestone 4: content hygiene and future reuse
 
-- [pending-review] CONTENT-015 Decide what to do with empty testimonial fields
+- [done] CONTENT-015 Decide what to do with empty testimonial fields
   - Check whether testimonial fields render anywhere.
   - If visible, add real placeholder-safe content or hide empty testimonials without deleting the reusable testimonial component.
   - If not visible, document that they are intentionally empty.
   - Audit note: homepage filters out testimonials with empty text, author, or role, so the current empty testimonial locale values do not render.
 
-- [pending] CONTENT-016 Normalize brand voice across both locale files
+- [ready] CONTENT-016 Normalize brand voice across both locale files
   - Remove accidental `we/our/product/subscription` voice where Inurri should speak as a personal service provider.
   - Keep `we` only where it is intentionally chosen.
   - Review both English and Polish after changes for consistency.
