@@ -131,7 +131,7 @@ Main content problems:
     - `npm run test` passes.
     - The detail route still prerenders public `/ar|de|fr/changelog/...` pages from unchanged Cooper/Astro software-product changelog entries, so the public changelog feature is not fully repositioned as Inurri Updates/Aktualności.
 
-- [pending-review] CONTENT-008c Isolate or neutralize non-English/Polish changelog detail routes
+- [done] CONTENT-008c Isolate or neutralize non-English/Polish changelog detail routes
   - parent: CONTENT-008b
   - Stop public `/ar|de|fr/changelog/...` pages from exposing unchanged Cooper/Astro software-product changelog content, either by limiting generated changelog detail routes to supported locales or by rewriting/isolating those entries.
   - Keep the English and Polish Updates/Aktualności pages and reusable changelog collection intact.
@@ -151,7 +151,7 @@ Main content problems:
   - Rewrite the comparison table documentation/example copy to neutral reusable or Inurri-relevant wording, avoiding SaaS/product-plan/subscription language.
   - Keep the comparison component and docs page reusable.
 
-- [pending] CONTENT-010 Rewrite checkout copy or clearly isolate checkout as unused reusable flow
+- [ready] CONTENT-010 Rewrite checkout copy or clearly isolate checkout as unused reusable flow
   - Replace subscription/payment boilerplate if checkout is publicly reachable.
   - If checkout is not part of the current business model, keep code but make content neutral or hide/unlink the route in a separate approved task.
   - Preserve `{plan}` placeholders if still used.
