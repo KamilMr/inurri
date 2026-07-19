@@ -25,8 +25,8 @@ export const siteConfig = {
   },
   contact: {
     email: {
-      support: '',
-      sales: '',
+      support: 'kontakt@inurri.pl',
+      sales: 'kontakt@inurri.pl',
     },
     phone: {
       main: '',
@@ -116,7 +116,7 @@ export const FOOTER_LINKS = {
     title: 'Legal',
     links: [
       { href: '/privacy', label: 'Privacy' },
-      { href: '/terms', label: 'Terms', localize: false }
+      { href: '/terms', label: 'Terms', localize: false, hidden: true }
     ],
   },
 };
