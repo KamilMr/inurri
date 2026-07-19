@@ -227,7 +227,7 @@ Main content problems:
   - Ensure `/docs/*` rendered HTML and client hydration payloads do not expose unchanged Cooper/Astro/template documentation body copy.
   - Keep the docs collection, docs routes, and reusable docs layout intact or internal/noindexed as intended.
 
-- [ready] CONTENT-020 Remove obsolete locale keys after review approval
+- [pending-review] CONTENT-020 Remove obsolete locale keys after review approval
   - Remove only locale keys confirmed obsolete by CONTENT-018: `stats.downloads`, `stats.uptime`, `stats.requests`, `stats.support`, all `pricing.feat.*` keys, and `compare.val.*` keys.
   - Preserve English/Polish key parity.
   - Do not remove reusable navigation, docs/demo, comparison label/row/category, search/dev, changelog sidebar helper, footer, blog, portfolio, open-source notification, or FAQ keys without a separate review decision.
