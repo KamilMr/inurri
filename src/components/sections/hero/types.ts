@@ -9,7 +9,7 @@ export interface HeroStat {
 }
 
 export interface HeroVariantProps {
-  badge: string;
+  badge?: string;
   title: string;
   highlight: string;
   description: string;

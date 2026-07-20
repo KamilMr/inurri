@@ -8,6 +8,7 @@ import type { HeroVariantProps } from './types';
 export interface Props extends HeroVariantProps {}
 
 const { badge, title, highlight, description, primaryCta, secondaryCta } = Astro.props;
+const hasBadge = Boolean(badge?.trim());
 ---
 
 <section data-hero-variant="cinematic" class="min-h-[90vh] flex items-end relative overflow-hidden pt-32 bg-background">
@@ -23,9 +24,11 @@ const { badge, title, highlight, description, primaryCta, secondaryCta } = Astro
 
   <div class="container mx-auto px-6 relative z-10 pb-24">
     <div class="hero-content opacity-0 translate-y-5 max-w-2xl">
-      <Badge class="mb-6 border-white/20">
-        {badge}
-      </Badge>
+      {hasBadge && (
+        <Badge class="mb-6 border-white/20">
+          {badge}
+        </Badge>
+      )}
       <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-white">
         {title} <br />
         <span class="text-primary">
