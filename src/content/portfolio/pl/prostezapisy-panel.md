@@ -1,6 +1,6 @@
 ---
-title: 'ProsteZapisy.pl'
-description: 'Panel administracyjny'
+title: 'Panel administracyjny'
+description: 'ProsteZapisy.pl'
 pubDate: '2026-06-20'
 heroImage: '/portfolio/prostezapisy-panel.webp'
 tags: ['Aplikacja webowa', 'React']

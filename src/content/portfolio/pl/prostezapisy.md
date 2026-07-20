@@ -1,6 +1,6 @@
 ---
-title: 'ProsteZapisy.pl'
-description: 'Aplikacja webowa do zapisów.'
+title: 'Aplikacja webowa do zapisów'
+description: 'ProsteZapisy.pl'
 pubDate: '2026-06-30'
 heroImage: '/portfolio/prostezapisy.webp'
 tags: ['Aplikacja webowa', 'Zapisy online']

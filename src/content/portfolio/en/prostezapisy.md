@@ -1,6 +1,6 @@
 ---
-title: 'ProsteZapisy.pl'
-description: 'Web app for online bookings.'
+title: 'Web app for online bookings'
+description: 'ProsteZapisy.pl'
 pubDate: '2026-06-30'
 heroImage: '/portfolio/prostezapisy.webp'
 tags: ['Web app', 'Online booking']
