@@ -66,9 +66,9 @@ const period = t['pricing.perMonth'];
 </style>
 
 <script>
-  const pricingCards = Array.from(document.querySelectorAll('.pricing-plan'));
+  const pricingCards = Array.from(document.querySelectorAll<HTMLElement>('.pricing-plan'));
   const mobilePricingCards = window.matchMedia('(max-width: 767px)');
-  let pricingCardsObserver;
+  let pricingCardsObserver: IntersectionObserver | null = null;
 
   const clearPricingCardHighlights = () => {
     pricingCards.forEach((card) => card.classList.remove('is-in-view'));
@@ -85,18 +85,18 @@ const period = t['pricing.perMonth'];
       return;
     }
 
-    const visibleCards = new Map();
+    const visibleCards = new Map<Element, number>();
 
     const updateActiveCard = () => {
-      let activeCard = null;
+      let activeCard: Element | null = null;
       let activeRatio = 0;
 
-      visibleCards.forEach((ratio, card) => {
+      for (const [card, ratio] of visibleCards) {
         if (ratio > activeRatio) {
           activeCard = card;
           activeRatio = ratio;
         }
-      });
+      }
 
       clearPricingCardHighlights();
 
@@ -105,7 +105,7 @@ const period = t['pricing.perMonth'];
       }
     };
 
-    pricingCardsObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           visibleCards.set(entry.target, entry.intersectionRatio);
@@ -120,7 +120,8 @@ const period = t['pricing.perMonth'];
       threshold: [0, 0.25, 0.35, 0.5, 0.65, 0.8, 1],
     });
 
-    pricingCards.forEach((card) => pricingCardsObserver.observe(card));
+    pricingCardsObserver = observer;
+    pricingCards.forEach((card) => observer.observe(card));
   };
 
   setupPricingCardObserver();
