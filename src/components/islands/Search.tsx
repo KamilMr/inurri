@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Search as SearchIcon, X, Book, Zap, LayoutGrid, FileText } from "lucide-react";
+import { Search as SearchIcon, X, Book, LayoutGrid, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Fuse from 'fuse.js';
 import type { FuseResult } from 'fuse.js';

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import type { ChangeEvent, FormEvent } from 'react';
+import type { ChangeEvent, SubmitEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, Loader2, Send } from 'lucide-react';
 
@@ -144,7 +144,7 @@ export default function ContactForm({ labels: labelOverrides, serviceOptions = [
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (!validate()) {
