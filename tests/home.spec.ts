@@ -3,52 +3,35 @@ import { test, expect } from '@playwright/test';
 test.describe('Home Page', () => {
   test('should load and show the main title', async ({ page }) => {
     await page.goto('/en');
-    const brandName = page.getByText(/Cooper/i).first();
-    await expect(brandName).toBeVisible();
-    await expect(page.getByText(/Ship Faster with/i)).toBeVisible();
+
+    await expect(page.getByRole('link', { name: 'Inurri Logo' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'Leave it to Inurri' })).toBeVisible();
     await expect(page.locator('[data-hero-variant="centered"]')).toBeVisible();
   });
 
-  test('navigation to Docs should work via Get Started button', async ({ page }) => {
+  test('navigation to Contact should work via the hero CTA', async ({ page }) => {
     await page.goto('/en');
-    const getStartedBtn = page.getByRole('link', { name: /Get Started/i }).first();
-    await getStartedBtn.click();
-    await expect(page).toHaveURL(/\/docs/);
+
+    await page.getByRole('link', { name: /Let’s talk/i }).click();
+    await expect(page).toHaveURL(/\/en\/contact\/?$/);
   });
 
-  test('search palette should open when clicking the search button', async ({ page }) => {
+  test('navigation to Work should work via the projects CTA', async ({ page }) => {
     await page.goto('/en');
-    
-    // Wait for hydration
-    await page.waitForTimeout(2000);
-    
-    // 1. Click search button
-    const searchBtn = page.getByRole('button', { name: /Search.../i });
-    await searchBtn.click();
-    
-    // 2. Check if search input is visible
-    const input = page.getByPlaceholder(/Search.../i);
-    await expect(input).toBeVisible({ timeout: 10000 });
+
+    await page.getByRole('link', { name: /View projects/i }).click();
+    await expect(page).toHaveURL(/\/en\/portfolio\/?$/);
   });
 
-  test('Demos nav dropdown links to the split hero demo page', async ({ page }) => {
+  test('Company nav dropdown links to the About page', async ({ page }) => {
     await page.goto('/en');
-    const demosButton = page.getByRole('button', { name: /Demos/i });
-    await expect(demosButton).toBeVisible({ timeout: 10000 }); // wait for DesktopNav hydration (client:only="react")
-    await demosButton.click();
-    const splitLink = page.getByRole('menuitem', { name: /Home Split/i });
-    await expect(splitLink).toBeVisible();
-    await expect(splitLink).toHaveAttribute('href', '/demo/home-split');
+
+    const companyButton = page.getByRole('button', { name: 'Company' });
+    await expect(companyButton.locator('xpath=ancestor::astro-island')).not.toHaveAttribute('ssr', '');
+    await companyButton.hover();
+
+    const aboutLink = page.getByRole('menuitem', { name: /About/i });
+    await expect(aboutLink).toBeVisible();
+    await expect(aboutLink).toHaveAttribute('href', '/en/about');
   });
-});
-
-test.describe('Hero variant demo pages', () => {
-  const variants = ['centered', 'split', 'cinematic', 'terminal'];
-
-  for (const variant of variants) {
-    test(`/demo/home-${variant} renders the ${variant} hero variant`, async ({ page }) => {
-      await page.goto(`/demo/home-${variant}`);
-      await expect(page.locator(`[data-hero-variant="${variant}"]`)).toBeVisible();
-    });
-  }
 });
