@@ -50,9 +50,10 @@ export async function getStaticPaths() {
 const { posts, tagName } = Astro.props;
 const { lang } = Astro.params;
 const t = useTranslations(lang);
+const tagDescription = `${t['blog.taggedWith']} ${tagName}`;
 ---
 
-<Layout title={`Tag: ${tagName} - Blog`} description={`Articles tagged with ${tagName}`}>
+<Layout title={`Tag: ${tagName} - Blog`} description={tagDescription}>
   <Container class="pt-32">
     <a href={`/${lang}/blog`} class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={`w-4 h-4 ${isRtl(lang) ? 'rotate-180' : ''}`}><path d="m15 18-6-6 6-6"/></svg>
@@ -62,7 +63,7 @@ const t = useTranslations(lang);
 
   <PageHeader 
       title={tagName}
-      description={`Articles tagged with ${tagName}`}
+      description={tagDescription}
   />
 
   <Container as="section" class="pb-24">
