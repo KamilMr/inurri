@@ -52,9 +52,13 @@ const schema = {
   "datePublished": pubDate.toISOString(),
   ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
   ...(heroImage && { "image": new URL(heroImage.src, Astro.site).toString() }),
-  "author": {
+  "author": authorEntry ? {
       "@type": "Person",
-      "name": authorEntry ? authorEntry.data.name : "Cooper Team",
+      "name": authorEntry.data.name,
+      "url": Astro.site?.toString() || ""
+  } : {
+      "@type": "Organization",
+      "name": "Inurri",
       "url": Astro.site?.toString() || ""
   }
 };
