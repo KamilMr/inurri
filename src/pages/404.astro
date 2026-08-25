@@ -1,11 +1,14 @@
 ---
+export const prerender = false;
+
 import Layout from '~/layouts/Layout.astro';
 import { ui, defaultLang, languages } from '~/i18n/ui';
 
 const t = ui[defaultLang] as any;
+Astro.response.status = 404;
 ---
 
-<Layout title={t['404.title']} description={t['404.description']}>
+<Layout title={t['404.title']} description={t['404.description']} noindex={true}>
   <script is:inline define:vars={{ languages, defaultLang }}>
     // Detect if we are in a sub-path that belongs to a language
     const pathname = window.location.pathname;

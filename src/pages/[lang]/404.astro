@@ -1,18 +1,14 @@
 ---
-export const prerender = true;
+export const prerender = false;
 import Layout from '~/layouts/Layout.astro';
-import { languages } from '~/i18n/ui';
 import { useTranslations } from '~/i18n/utils';
-
-export async function getStaticPaths() {
-  return Object.keys(languages).map((lang) => ({ params: { lang } }));
-}
 
 const { lang } = Astro.params;
 const t = useTranslations(lang);
+Astro.response.status = 404;
 ---
 
-<Layout title={t['404.title']} description={t['404.description']}>
+<Layout title={t['404.title']} description={t['404.description']} noindex={true}>
   <div class="min-h-[80vh] flex flex-col items-center justify-center text-center relative overflow-hidden">
       <!-- Background Effect -->
       <div class="absolute inset-0 z-0 flex items-center justify-center opacity-20 pointer-events-none">

@@ -12,7 +12,6 @@ const blogCollection = defineCollection({
 		updatedDate: z.coerce.date().optional(),
 		heroImage: image().optional(),
 		heroImageAlt: z.string().optional(),
-        author: z.string().optional(),
         tags: z.array(z.string()).optional(),
         youtubeId: z.string().optional(),
         audioUrl: z.string().optional(),
@@ -36,17 +35,6 @@ const portfolioCollection = defineCollection({
     }),
 });
 
-const docsCollection = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/docs" }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        order: z.number().optional(),
-        noindex: z.boolean().optional().default(false),
-        nofollow: z.boolean().optional().default(false),
-    }),
-});
-
 const changelogCollection = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/changelog" }),
     schema: z.object({
@@ -63,24 +51,8 @@ const changelogCollection = defineCollection({
     }),
 });
 
-const authorsCollection = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/authors" }),
-    schema: ({ image }) => z.object({
-        name: z.string(),
-        description: z.string(),
-        avatar: image(),
-        social: z.object({
-            twitter: z.string().optional(),
-            linkedin: z.string().optional(),
-            github: z.string().optional(),
-        }).optional(),
-    }),
-});
-
 export const collections = {
 	'blog': blogCollection,
     'portfolio': portfolioCollection,
-    'docs': docsCollection,
     'changelog': changelogCollection,
-    'authors': authorsCollection,
 };

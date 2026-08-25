@@ -4,3 +4,9 @@
 
 [build.environment]
   NPM_FLAGS = "--legacy-peer-deps"
+
+[[redirects]]
+  from = "https://inurri.pl/*"
+  to = "https://www.inurri.pl/:splat"
+  status = 301
+  force = true

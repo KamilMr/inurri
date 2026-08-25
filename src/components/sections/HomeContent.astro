@@ -25,10 +25,9 @@ import { useTranslations } from '~/i18n/utils';
 
 export interface Props {
   lang: string;
-  heroVariant?: 'centered' | 'split' | 'cinematic' | 'terminal';
 }
 
-const { lang, heroVariant = 'centered' } = Astro.props;
+const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 // Keep the logo cloud ready for reuse, but hide it from the homepage for now.
@@ -75,7 +74,6 @@ const homeFaqs = [
 ---
 
 <Hero
-    variant={heroVariant}
     title={t['hero.title']}
     highlight={t['hero.highlight']}
     description={t['hero.subtitle']}

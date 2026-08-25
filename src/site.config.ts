@@ -115,7 +115,6 @@ export const FOOTER_LINKS = {
     title: 'Legal',
     links: [
       { href: '/privacy', label: 'Privacy' },
-      { href: '/terms', label: 'Terms', localize: false, hidden: true }
     ],
   },
 };

@@ -3,10 +3,8 @@ import Layout from './Layout.astro';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import AudioPlayer from '~/components/common/AudioPlayer.astro';
-import { getEntry } from 'astro:content';
 import { defaultLang } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
-import AuthorDetails from '~/components/blog/AuthorDetails.astro';
 import ScrollProgress from '~/components/layout/ScrollProgress.astro';
 import Badge from '~/components/ui/Badge.astro';
 
@@ -15,7 +13,6 @@ interface Props {
   description: string;
   pubDate: Date;
   updatedDate?: Date;
-  author?: any;
   tags?: string[];
   youtubeId?: string;
   audioUrl?: string;
@@ -28,21 +25,9 @@ interface Props {
   availableLangs?: string[];
 }
 
-const { title, description, pubDate, updatedDate, heroImage, heroImageAlt, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs, author, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, heroImageAlt, youtubeId, audioUrl, isVideo, noindex, nofollow, availableLangs, tags } = Astro.props;
 const { lang = defaultLang } = Astro.params;
 const t = useTranslations(lang);
-
-// Resolve author with i18n fallback
-let authorEntry = null;
-if (author) {
-    // Try to find author in current language
-    authorEntry = await getEntry('authors', `${lang}/${author}`);
-    
-    // Fallback to default language if not found
-    if (!authorEntry && lang !== defaultLang) {
-        authorEntry = await getEntry('authors', `${defaultLang}/${author}`);
-    }
-}
 
 const schema = {
   "@context": "https://schema.org",
@@ -52,11 +37,7 @@ const schema = {
   "datePublished": pubDate.toISOString(),
   ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
   ...(heroImage && { "image": new URL(heroImage.src, Astro.site).toString() }),
-  "author": authorEntry ? {
-      "@type": "Person",
-      "name": authorEntry.data.name,
-      "url": Astro.site?.toString() || ""
-  } : {
+  "author": {
       "@type": "Organization",
       "name": "Inurri",
       "url": Astro.site?.toString() || ""
@@ -153,6 +134,5 @@ const schema = {
       <slot />
     </div>
 
-    {authorEntry && <AuthorDetails author={authorEntry} />}
   </article>
 </Layout>

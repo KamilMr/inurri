@@ -2,11 +2,14 @@
 export const prerender = true;
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import BlogPost from '~/layouts/BlogPost.astro';
-
+import { languages } from '~/i18n/ui';
 
 export async function getStaticPaths() {
+	const supportedLocales = new Set(Object.keys(languages));
 	const posts = await getCollection('blog');
-	return posts.map((post) => {
+	return posts
+    .filter((post) => supportedLocales.has(post.id.split('/')[0]))
+    .map((post) => {
     const [lang, ...slugParts] = post.id.split('/');
     const slug = slugParts.join('/').replace(/\.[^/.]+$/, "");
     return {

@@ -3,12 +3,15 @@ export const prerender = true;
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 import Layout from '~/layouts/Layout.astro';
 import { ArrowLeft, Calendar, ExternalLink } from 'lucide-react';
-import { defaultLang } from '~/i18n/ui';
+import { defaultLang, languages } from '~/i18n/ui';
 import { isRtl, useTranslations } from '~/i18n/utils';
 
 export async function getStaticPaths() {
+    const supportedLocales = new Set(Object.keys(languages));
 	const posts = await getCollection('portfolio');
-	return posts.map((post) => {
+	return posts
+        .filter((post) => supportedLocales.has(post.id.split('/')[0]))
+        .map((post) => {
         const lang = post.id.split('/')[0];
         const slug = post.id.split('/').slice(1).join('/').replace(/\.[^/.]+$/, "");
         return {

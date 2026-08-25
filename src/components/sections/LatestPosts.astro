@@ -29,6 +29,7 @@ const posts = (await getCollection('blog'))
   ).slice(0, count);
 ---
 
+{posts.length > 0 && (
 <section class="py-24 bg-white/2">
     <div class="max-w-7xl mx-auto px-6">
          <div class="flex justify-between items-end mb-12">
@@ -50,7 +51,6 @@ const posts = (await getCollection('blog'))
                     slug={`/${lang}/blog/${post.id.split('/').slice(1).join('/').replace(/\.[^/.]+$/, "")}`}
                     heroImage={post.data.heroImage}
                     isVideo={post.data.isVideo}
-                    author={post.data.author}
                     audioUrl={post.data.audioUrl}
                 />
             ))}
@@ -61,3 +61,4 @@ const posts = (await getCollection('blog'))
          </div>
     </div>
 </section>
+)}

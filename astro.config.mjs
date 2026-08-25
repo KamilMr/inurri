@@ -85,16 +85,24 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => {
-        const pathname = new URL(page).pathname.replace(/\/$/, '');
-        const hiddenPaths = ['/features', '/changelog'];
-        const isHiddenPublicPath = hiddenPaths.some((path) => (
-          pathname === `/en${path}` ||
-          pathname === `/pl${path}` ||
-          pathname.startsWith(`/en${path}/`) ||
-          pathname.startsWith(`/pl${path}/`)
-        ));
+        const pathSegments = new URL(page).pathname.split('/').filter(Boolean);
+        const [locale, section, subsection] = pathSegments;
+        const supportedLocales = new Set(['pl', 'en']);
+        const publicSections = new Set([
+          'about',
+          'blog',
+          'contact',
+          'portfolio',
+          'pricing',
+          'privacy',
+        ]);
 
-        return !pathname.includes('/demo/') && !isHiddenPublicPath;
+        if (!supportedLocales.has(locale)) return false;
+        if (!section) return true;
+        if (!publicSections.has(section)) return false;
+        if (section === 'blog' && subsection === 'author') return false;
+
+        return true;
       },
     }),
     react(), 

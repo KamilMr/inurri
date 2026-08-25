@@ -16,7 +16,7 @@ interface NewsletterProps {
 
 export default function Newsletter({
   title = "Join the Frontier",
-  description = "Get the latest updates on space-age engineering and interstellar design directly in your inbox.",
+  description = "Get the latest Inurri updates directly in your inbox.",
   buttonText = "Subscribe",
   placeholder = "enter your email...",
   successTitle = "Thank you",

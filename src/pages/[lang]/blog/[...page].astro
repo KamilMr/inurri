@@ -22,8 +22,10 @@ export async function getStaticPaths({ paginate }: { paginate: GetStaticPathsOpt
 
   return Object.keys(languages).flatMap((lang) => {
       const filteredPosts = posts.filter((post) => post.id.startsWith(`${lang}/`));
-      return paginate(filteredPosts, { 
-          params: { lang }, 
+      if (filteredPosts.length === 0) return [];
+
+      return paginate(filteredPosts, {
+          params: { lang },
           pageSize: siteConfig.blog.postsPerPage
       });
   });
@@ -34,7 +36,7 @@ const { lang } = Astro.params;
 const t = useTranslations(lang);
 ---
 
-<Layout title="Blog - Astro Boilerplate" description="Read our latest articles">
+<Layout title={`${t['blog.hero.title']} - Inurri`} description={t['blog.hero.subtitle']}>
   <PageHeader 
       title={t['blog.hero.title']}
       description={t['blog.hero.subtitle']}
@@ -50,7 +52,6 @@ const t = useTranslations(lang);
              heroImage={post.data.heroImage}
              slug={`/${lang}/blog/${post.id.split('/').slice(1).join('/').replace(/\.[^/.]+$/, "")}`}
              isVideo={post.data.isVideo}
-             author={post.data.author}
              audioUrl={post.data.audioUrl}
           />
         ))}

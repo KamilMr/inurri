@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Search as SearchIcon, X, Book, LayoutGrid, FileText } from "lucide-react";
+import { Search as SearchIcon, X, BriefcaseBusiness, FileText, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Fuse from 'fuse.js';
 import type { FuseResult } from 'fuse.js';
@@ -19,11 +19,9 @@ interface PopularLink {
 }
 
 const POPULAR_LINKS: PopularLink[] = [
-  { label: "Getting Started", href: "/docs/getting-started/", icon: Book, localize: false },
-  // Features is kept in the codebase but hidden from public promotion/search indexing.
-  // { label: "Features", href: "/features/", icon: Zap },
-  { label: "Design System", href: "/design/", icon: LayoutGrid },
+  { label: "Portfolio", href: "/portfolio/", icon: BriefcaseBusiness },
   { label: "Blog", href: "/blog/", icon: FileText },
+  { label: "Contact", href: "/contact/", icon: Mail },
 ];
 
 interface SearchProps {
